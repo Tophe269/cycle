@@ -7,6 +7,9 @@ const theme = {
     hlBgColor: "#102DEA",
     hvBgColor: "#303030",
   },
+  content:{
+    colorPrimary: "#171618",
+  }
 };
 
 export default theme;

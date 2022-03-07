@@ -3,6 +3,8 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "../../../constants/theme";
 import Head from "next/head";
 
+import SideBar from "../sideBar/SideBar";
+
 const ContainerDiv = styled.div`
   width: 100vw;
   height: 100vh;
@@ -24,7 +26,7 @@ const Header = styled.header`
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
-  color: #171618;
+  color: ${({ theme: { colorPrimary } }) => colorPrimary};
 `;
 
 const ContentDiv = styled.div`
@@ -58,12 +60,14 @@ const Layout = ({
       />
     </Head>
     <ThemeProvider theme={theme.nav}>
-      <Nav></Nav>
+      <SideBar menuItem={menuItem} />
     </ThemeProvider>
-    <ContentDiv>
-      <Header>{title}</Header>
-      {children}
-    </ContentDiv>
+    <ThemeProvider theme={theme.content}>
+      <ContentDiv>
+        <Header>{title}</Header>
+        {children}
+      </ContentDiv>
+    </ThemeProvider>
   </ContainerDiv>
 );
 
