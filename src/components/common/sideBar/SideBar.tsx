@@ -5,6 +5,8 @@ import { menuLinks, boards } from "../../../constants/menu";
 
 import { MenuLink, BoardMenu } from "../../../types/menu";
 
+import Image from "next/image";
+
 const Nav = styled.nav`
   color: ${({ theme: { color } }) => color};
   background-color: ${({ theme: { bgColor } }) => bgColor};
@@ -42,6 +44,12 @@ const SideBar = ({ menuItem }: { menuItem: string }) => (
     <LinksUl>
       {menuLinks.map(({ icon, text, slug }: MenuLink) => (
         <LinksLi key={slug}>
+          <Image
+            src={`/icons/${icon}.svg`}
+            alt="Logo"
+            width={14}
+            height={14}
+          />
           <Link href={slug}>{text}</Link>
         </LinksLi>
       ))}
