@@ -39,17 +39,12 @@ const BoardsLinksUl = styled.ul`
 
 const BoardsLinksLi = styled.li``;
 
-const SideBar = ({ menuItem }: { menuItem: string }) => (
+const SideBar = ({ currentPage }: { currentPage: string }) => (
   <Nav>
     <LinksUl>
       {menuLinks.map(({ icon, text, slug }: MenuLink) => (
         <LinksLi key={slug}>
-          <Image
-            src={`/icons/${icon}.svg`}
-            alt="Logo"
-            width={14}
-            height={14}
-          />
+          <Image src={`/icons/${icon}.svg`} alt="Logo" width={14} height={14} />
           <Link href={slug}>{text}</Link>
         </LinksLi>
       ))}

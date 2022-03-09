@@ -41,11 +41,11 @@ const Main = styled.main`
 `;
 
 const Layout = ({
-  menuItem,
+  currentPage,
   title,
   children,
 }: {
-  menuItem: string;
+  currentPage: string;
   title: string;
   children: ReactNode;
 }): JSX.Element => (
@@ -53,10 +53,9 @@ const Layout = ({
     <Head>
       <title>{title}</title>
       <meta name="description" content={`Cycle - ${title}`} />
-      <link rel="icon" href="/favicon.ico" />
     </Head>
     <ThemeProvider theme={theme.nav}>
-      <SideBar menuItem={menuItem} />
+      <SideBar currentPage={currentPage} />
     </ThemeProvider>
     <ThemeProvider theme={theme.content}>
       <ContentDiv>

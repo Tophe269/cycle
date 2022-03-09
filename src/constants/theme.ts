@@ -9,6 +9,7 @@ const theme = {
   },
   content: {
     colorPrimary: "#171618",
+    docBgColor: "#FFFFFF",
     tags: {
       green: {
         color: "#0FD267",

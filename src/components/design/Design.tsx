@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import { designBoard } from "../../constants/design-data";
 
+import Document from "../../components/common/board/document/Document";
+
 const FrameSet = styled.div`
   display: flex;
   flex-direction: line;
@@ -10,6 +12,8 @@ const FrameSet = styled.div`
 const Frame = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 6px;
+  padding: 8px;
 `;
 
 const Design = () => (
@@ -19,17 +23,8 @@ const Design = () => (
         <div>
           {icon} {title}
         </div>
-        {docs.map(({ id, text, tags, icon: docIcon }) => (
-          <div key={id}>
-            {text}
-            <div>
-              <div>{docIcon}</div>
-              <div>#{id}</div>
-              {tags.map(({ text: tagText }) => (
-                <div key={tagText}>{tagText}</div>
-              ))}
-            </div>
-          </div>
+        {docs.map(({ id, text, tags, icon }) => (
+          <Document key={id} id={id} text={text} tags={tags} icon={icon} />
         ))}
       </Frame>
     ))}
