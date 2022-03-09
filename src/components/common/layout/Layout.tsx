@@ -54,10 +54,6 @@ const Layout = ({
       <title>{title}</title>
       <meta name="description" content={`Cycle - ${title}`} />
       <link rel="icon" href="/favicon.ico" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700"
-      />
     </Head>
     <ThemeProvider theme={theme.nav}>
       <SideBar menuItem={menuItem} />
