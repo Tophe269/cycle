@@ -62,11 +62,19 @@ const DownSpan = styled.span<{ collapsed: boolean }>`
 const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
   width: 270px;
   margin: 8px 0;
+  display: flex;
+  justify-content: flex-start;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
-  ${({ collapsed }) => (collapsed ? "transform: translate(-135px, 0px);" : "")}
-  transition: transform 0.5s;
+  ${({ collapsed }) =>
+    collapsed
+      ? `
+  justify-content: flex-end;
+  transform: translate(-270px, 0px);
+  `
+      : ""}
+  transition: transform 0.5s, justify-content 0.5s;
 `;
 
 const FrameTitleSpan = styled.span<{ collapsed: boolean }>`
@@ -85,8 +93,8 @@ const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
   ${({ collapsed }) =>
     collapsed
       ? `
-  padding-top:100%;
-  opacity:0;
+  padding-top: 300px;
+  opacity: 0;
   height: calc(100vh - 104px);
   `
       : ""}
@@ -95,7 +103,7 @@ const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
     width: 4px;
     height: 8px;
   }
-  transition: padding, opacity 0.5s;
+  transition: padding 0.5s, opacity 0.5s, height 0.5s;
 `;
 
 export {
