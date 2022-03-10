@@ -34,7 +34,7 @@ const DocumentWrapper = styled.div`
   position: relative;
   width: 254px;
   padding: 8px 8px 10px 8px;
-  margin: 4px 0px;
+  margin-bottom: 8px;
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;

@@ -12,6 +12,7 @@ const theme = {
     bgColor: "#F7F7F7",
     frameBgColor: "#F0F0F0",
     docBgColor: "#FFFFFF",
+    newDocHvBgColor: "#E6E6E6",
     tags: {
       green: {
         color: "#0FD267",
