@@ -1,28 +1,15 @@
 import styled from "styled-components";
 
-import { designBoard } from "../../constants/design-data";
-
 import Document from "../../components/common/board/document/Document";
+import FrameSet from "../../components/common/board/frameset/Frameset";
+import Frame from "../../components/common/board/frameset/Frame";
 
-const FrameSet = styled.div`
-  display: flex;
-  flex-direction: line;
-`;
+import { DesignProps } from "./index";
 
-const Frame = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 6px;
-  padding: 8px;
-`;
-
-const Design = () => (
+const Design = ({ board }: DesignProps) => (
   <FrameSet>
-    {designBoard.map(({ slug, icon, title, docs }) => (
-      <Frame key={slug}>
-        <div>
-          {icon} {title}
-        </div>
+    {board.map(({ slug, icon: ttleIcon, title, docs }) => (
+      <Frame key={slug} ttleIcon={ttleIcon} title={title}>
         {docs.map(({ id, text, tags, icon }) => (
           <Document key={id} id={id} text={text} tags={tags} icon={icon} />
         ))}
