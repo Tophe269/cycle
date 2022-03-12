@@ -1,4 +1,4 @@
-import { DocGroup } from "../types/board";
+import { DocGroup } from "@/types/board";
 
 export const designBoard: DocGroup[] = [
   {

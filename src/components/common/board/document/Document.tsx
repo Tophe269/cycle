@@ -1,4 +1,4 @@
-import { Doc } from "../../../../types/board";
+import { Doc } from "@/types/board";
 
 import { DocumentWrapper, Tags, Tag, Check, More } from "./styles";
 import Image from "next/image";

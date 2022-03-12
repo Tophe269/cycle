@@ -1,46 +1,24 @@
-import styled from "styled-components";
 import Link from "next/link";
-
-import { menuLinks, boards } from "../../../constants/menu";
-
-import { MenuLink, BoardMenu } from "../../../types/menu";
-
+import {
+  Nav,
+  LinksUl,
+  LinksLi,
+  BoardsUl,
+  BoardsLi,
+  BoardsLinksUl,
+  BoardsLinksLi,
+  TogglerDiv,
+  TogglerIconDiv,
+} from "./styles";
 import Image from "next/image";
 
-const Nav = styled.nav`
-  color: ${({ theme: { color } }) => color};
-  background-color: ${({ theme: { bgColor } }) => bgColor};
-  height: 100vh;
-  width: 240px;
-  flex: 0 0 240px;
-`;
+import { menuLinks, boards } from "@/constants/menu";
 
-const LinksUl = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
+import { MenuLink, BoardMenu } from "@/types/menu";
+import { SideBarProps } from "./index";
 
-const LinksLi = styled.li``;
-
-const BoardsUl = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const BoardsLi = styled.li``;
-
-const BoardsLinksUl = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const BoardsLinksLi = styled.li``;
-
-const SideBar = ({ currentPage }: { currentPage: string }) => (
-  <Nav>
+const SideBar = ({ currentPage, isMenuOpen, toggleMenu }: SideBarProps) => (
+  <Nav isMenuOpen={isMenuOpen}>
     <LinksUl>
       {menuLinks.map(({ icon, text, slug }: MenuLink) => (
         <LinksLi key={slug}>
@@ -66,6 +44,16 @@ const SideBar = ({ currentPage }: { currentPage: string }) => (
         </BoardsLi>
       ))}
     </BoardsUl>
+    <TogglerDiv onClick={toggleMenu}>
+      <TogglerIconDiv>
+        <Image
+          src={`/icons/select.svg`}
+          alt="Toggle menu"
+          width={14}
+          height={14}
+        />
+      </TogglerIconDiv>
+    </TogglerDiv>
   </Nav>
 );
 

@@ -1,13 +1,26 @@
 import styled from "styled-components";
 
-const FrameSetDiv = styled.div`
-  width: calc(100vw - 240px);
+const FrameSetMain = styled.main<{ isMenuOpen: boolean }>`
+  width: calc(100vw - ${({ isMenuOpen }) => (isMenuOpen ? "240px" : "64px")});
+  padding: 0 26px 10px;
   flex: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  background-color: ${({ theme: { bgColor } }) => bgColor};
   overflow-x: auto;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme: { newDocHvBgColor } }) => newDocHvBgColor};
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme: { colorPrimary } }) => colorPrimary};
+    border-radius: 3px;
+  }
 `;
 
 const NewDocDiv = styled.div`
@@ -31,14 +44,14 @@ const FrameDiv = styled.div<{ collapsed: boolean }>`
   flex-shrink: 0;
   flex-direction: column;
   width: 270px;
-  margin: 6px;
+  margin: 0 6px;
   padding: 0px 0px 12px 0px;
   background-color: ${({ theme: { frameBgColor } }) => frameBgColor};
   border-radius: 8px;
   &:hover ${NewDocDiv} {
     background-color: ${({ theme: { newDocHvBgColor } }) => newDocHvBgColor};
   }
-  ${({ collapsed }) => (collapsed ? "width: 30px;" : "")}
+  ${({ collapsed }) => (collapsed ? "width: 33px;" : "")}
   transition: width 0.5s;
   overflow: hidden;
 `;
@@ -71,7 +84,7 @@ const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
     collapsed
       ? `
   justify-content: flex-end;
-  transform: translate(-270px, 0px);
+  transform: translate(-267px, 0px);
   `
       : ""}
   transition: transform 0.5s, justify-content 0.5s;
@@ -79,14 +92,23 @@ const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
 
 const FrameTitleSpan = styled.span<{ collapsed: boolean }>`
   display: inline-block;
-  padding: 0 32px;
+  padding: 0 24px 0 32px;
   ${({ collapsed }) => (collapsed ? "transform: rotate(-90deg);" : "")}
   transition: transform 0.5s;
   transform-origin: top right;
 `;
 
+const FrameTitleIconSpan = styled.span`
+  display: inline-block;
+`;
+
+const FrameTitleTextSpan = styled.span`
+  display: inline-block;
+  margin-left: 8px;
+`;
+
 const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
-  max-height: calc(100vh - 104px);
+  max-height: calc(100vh - 129px);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0px 8px;
@@ -95,24 +117,51 @@ const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
       ? `
   padding-top: 300px;
   opacity: 0;
-  height: calc(100vh - 104px);
+  height: calc(100vh - 129px);
   `
       : ""}
   scrollbar-width: thin;
   &::-webkit-scrollbar {
-    width: 4px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme: { newDocHvBgColor } }) => newDocHvBgColor};
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme: { colorPrimary } }) => colorPrimary};
+    border-radius: 3px;
   }
   transition: padding 0.5s, opacity 0.5s, height 0.5s;
 `;
 
+const NewGroupDiv = styled.div`
+  margin: 10px 0 0 17px;
+  padding: 2px 0.5px;
+  width: 119px;
+  flex-shrink: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+`;
+
+const NewGroupSpan = styled.span`
+  display: inline-block;
+  margin-left: 4.5px;
+`;
+
 export {
-  FrameSetDiv,
+  FrameSetMain,
   FrameDiv,
   DownSpan,
   FrameTitleDiv,
+  FrameTitleIconSpan,
+  FrameTitleTextSpan,
   FrameTitleSpan,
   ScrollWrapperDiv,
   NewDocDiv,
   NewDocSpan,
+  NewGroupDiv,
+  NewGroupSpan,
 };

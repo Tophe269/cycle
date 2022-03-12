@@ -1,65 +1,39 @@
-import { ReactNode } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import theme from "../../../constants/theme";
+import { ThemeProvider } from "styled-components";
+import theme from "@/constants/theme";
 import Head from "next/head";
 
-import SideBar from "../sideBar/SideBar";
+import SideBar from "../sideBar";
 
-const ContainerDiv = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: green;
-  display: flex;
-  flex-direction: row;
-`;
+import {
+  ContainerDiv,
+  Header,
+  HeaderTitleSpan,
+  HeaderTitleIconSpan,
+  ContentDiv,
+} from "./styles";
 
-const Nav = styled.nav`
-  color: ${({ theme: { color } }) => color};
-  background-color: ${({ theme: { bgColor } }) => bgColor};
-  height: 100vh;
-  width: 240px;
-  flex-grow: 1;
-`;
-
-const Header = styled.header`
-  font-family: Inter;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-  color: ${({ theme: { colorPrimary } }) => colorPrimary};
-`;
-
-const ContentDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-`;
-
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-`;
+import { LayoutProps } from "./index";
 
 const Layout = ({
-  currentPage,
+  icon,
   title,
+  boardSlug,
   children,
-}: {
-  currentPage: string;
-  title: string;
-  children: ReactNode;
-}): JSX.Element => (
+}: LayoutProps): JSX.Element => (
   <ContainerDiv>
     <Head>
       <title>{title}</title>
       <meta name="description" content={`Cycle - ${title}`} />
     </Head>
     <ThemeProvider theme={theme.nav}>
-      <SideBar currentPage={currentPage} />
+      <SideBar currentPage={boardSlug} />
     </ThemeProvider>
     <ThemeProvider theme={theme.content}>
       <ContentDiv>
-        <Header>{title}</Header>
+        <Header>
+          <HeaderTitleIconSpan>{icon}</HeaderTitleIconSpan>{" "}
+          <HeaderTitleSpan>{title}</HeaderTitleSpan>
+        </Header>
         {children}
       </ContentDiv>
     </ThemeProvider>

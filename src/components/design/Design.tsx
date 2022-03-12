@@ -1,6 +1,11 @@
-import Document from "../../components/common/board/document/Document";
-import FrameSet from "../../components/common/board/frameset/Frameset";
-import Frame from "../../components/common/board/frameset/Frame";
+import Document from "@/components/common/board/document/Document";
+import FrameSet from "@/components/common/board/frameset";
+import Frame from "@/components/common/board/frameset/Frame";
+import {
+  NewGroupDiv,
+  NewGroupSpan,
+} from "@/components/common/board/frameset/styles";
+import Image from "next/image";
 
 import { DesignProps } from "./index";
 
@@ -13,6 +18,10 @@ const Design = ({ board }: DesignProps) => (
         ))}
       </Frame>
     ))}
+    <NewGroupDiv>
+      <Image src={`/icons/new.svg`} alt="New doc" width={7} height={7} />
+      <NewGroupSpan>New group</NewGroupSpan>
+    </NewGroupDiv>
   </FrameSet>
 );
 

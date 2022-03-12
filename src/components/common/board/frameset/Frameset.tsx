@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { FrameSetMain } from "./styles";
 
-import { FrameSetDiv } from "./styles";
+import { FramesetProps } from "./index";
 
-const FrameSet = ({ children }: { children: ReactNode }): JSX.Element => (
-  <FrameSetDiv>{children}</FrameSetDiv>
+const FrameSet = ({ children, isMenuOpen }: FramesetProps): JSX.Element => (
+  <FrameSetMain isMenuOpen={isMenuOpen}>{children}</FrameSetMain>
 );
 
 export default FrameSet;

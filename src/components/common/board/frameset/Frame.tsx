@@ -5,9 +5,12 @@ import {
   DownSpan,
   FrameTitleDiv,
   FrameTitleSpan,
+  FrameTitleIconSpan,
+  FrameTitleTextSpan,
   ScrollWrapperDiv,
   NewDocDiv,
   NewDocSpan,
+
 } from "./styles";
 import Image from "next/image";
 
@@ -32,7 +35,8 @@ const Frame = ({ titleIcon, title, children }: FrameProps): JSX.Element => {
       </DownSpan>
       <FrameTitleDiv collapsed={collapsed}>
         <FrameTitleSpan collapsed={collapsed}>
-          {titleIcon} {title}
+          <FrameTitleIconSpan>{titleIcon}</FrameTitleIconSpan>
+          <FrameTitleTextSpan>{title}</FrameTitleTextSpan>
         </FrameTitleSpan>
       </FrameTitleDiv>
       <ScrollWrapperDiv collapsed={collapsed}>

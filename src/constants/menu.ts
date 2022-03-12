@@ -1,8 +1,13 @@
-import { MenuLink, BoardMenu } from "../types/menu";
+import { MenuLink, BoardMenu } from "@/types/menu";
 
 const menuLinks: MenuLink[] = [
   { icon: "search", text: "Search", slug: "search", cmd: [] },
-  { icon: "notifications", text: "Notifications", slug: "notifications", cmd: [] },
+  {
+    icon: "notifications",
+    text: "Notifications",
+    slug: "notifications",
+    cmd: [],
+  },
   { icon: "commands", text: "Commands", slug: "commands", cmd: [] },
   { icon: "create", text: "Create doc", slug: "create-doc", cmd: [] },
   { icon: "all-docs", text: "All docs", slug: "all-docs", cmd: [] },
