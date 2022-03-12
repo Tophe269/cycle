@@ -21,6 +21,7 @@ const FrameSetMain = styled.main<{ isMenuOpen: boolean }>`
     background: ${({ theme: { colorPrimary } }) => colorPrimary};
     border-radius: 3px;
   }
+  transition: width 0.8s;
 `;
 
 const NewDocDiv = styled.div`

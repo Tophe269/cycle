@@ -6,8 +6,7 @@ const Nav = styled.nav<{ isMenuOpen: boolean }>`
   height: 100vh;
   width: ${({ isMenuOpen }) => (isMenuOpen ? "240px" : "64px")};
   position: relative;
-  transition: width 0.5s;
-  overflow: hidden;
+  transition: width 0.8s;
 `;
 
 const LinksUl = styled.ul`
@@ -37,23 +36,38 @@ const BoardsLinksLi = styled.li``;
 const TogglerDiv = styled.div`
   position: absolute;
   top: 0;
-  bottom: 0;
   right: -4px;
   width: 4px;
   height: 100%;
+  max-height: 500px;
   opacity: 0;
-  background-color: blue;
+  background: linear-gradient(
+    180deg,
+    #2e48ed 10.71%,
+    rgba(39, 64, 225, 0) 86.61%
+  );
   :hover {
     opacity: 1;
   }
   transition: opacity 0.5s;
+  cursor: pointer;
 `;
 
-const TogglerIconDiv = styled.div`
+const TogglerIconDiv = styled.div<{ isMenuOpen: boolean }>`
   position: absolute;
-  top: 0;
+  top: 16px;
   left: 0;
-  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  background: linear-gradient(180deg, #2e48ed 0%, #2740e1 100%);
+  border-radius: 50%;
+  transform: translateX(-50%) rotate(-180deg);
+  ${({ isMenuOpen }) =>
+    isMenuOpen && "transform: translateX(-50%) rotate(0deg);"}
+  transition: transform .8s;
 `;
 
 export {

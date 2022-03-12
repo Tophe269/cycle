@@ -45,12 +45,12 @@ const SideBar = ({ currentPage, isMenuOpen, toggleMenu }: SideBarProps) => (
       ))}
     </BoardsUl>
     <TogglerDiv onClick={toggleMenu}>
-      <TogglerIconDiv>
+      <TogglerIconDiv isMenuOpen={isMenuOpen}>
         <Image
           src={`/icons/select.svg`}
           alt="Toggle menu"
-          width={14}
-          height={14}
+          width={6}
+          height={10}
         />
       </TogglerIconDiv>
     </TogglerDiv>
