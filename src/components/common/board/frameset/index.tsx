@@ -7,13 +7,13 @@ import Frameset from "./Frameset";
 type FramesetContainerProps = { children: ReactNode };
 
 export type FramesetProps = FramesetContainerProps & {
-  isMenuOpen: boolean;
+  isSideBarOpen: boolean;
 };
 
 const FramesetContainer = (props: FramesetContainerProps): JSX.Element => {
-  const { isMenuOpen, toggleMenu } = useContext(ToggleMenuContext);
+  const { isSideBarOpen, toggleMenu } = useContext(ToggleMenuContext);
 
-  return <Frameset {...props} isMenuOpen={isMenuOpen} />;
+  return <Frameset {...props} isSideBarOpen={isSideBarOpen} />;
 };
 
 export default FramesetContainer;

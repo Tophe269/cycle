@@ -6,6 +6,7 @@ const theme = {
     bgColor: "#171618",
     hlBgColor: "#102DEA",
     hvBgColor: "#303030",
+    hvBgMoreColor: "#404040",
   },
   content: {
     colorPrimary: "#171618",

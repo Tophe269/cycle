@@ -1,32 +1,26 @@
-import {
-  createContext,
-  useState,
-  forwardRef,
-  useContext,
-  ReactChild,
-} from "react";
+import { createContext, useState, ReactNode } from "react";
 
 const ToggleMenuContext = createContext<{
-  isMenuOpen: boolean;
+  isSideBarOpen: boolean;
   toggleMenu: () => void;
 }>({
-  isMenuOpen: true,
+  isSideBarOpen: true,
   toggleMenu: () => {},
 });
 
 const ToggleMenuProvider = ({
   children,
 }: {
-  children: ReactChild;
+  children: ReactNode;
 }): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+  const [isSideBarOpen, setisSideBarOpen] = useState<boolean>(true);
   return (
     <ToggleMenuContext.Provider
       value={{
-        isMenuOpen,
+        isSideBarOpen,
         toggleMenu: () => {
-          console.log("toggle menu ", isMenuOpen);
-          setIsMenuOpen(bool => !bool);
+          console.log("toggle menu ", isSideBarOpen);
+          setisSideBarOpen(bool => !bool);
         },
       }}
     >

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-const FrameSetMain = styled.main<{ isMenuOpen: boolean }>`
-  width: calc(100vw - ${({ isMenuOpen }) => (isMenuOpen ? "240px" : "64px")});
+const FrameSetMain = styled.main<{ isSideBarOpen: boolean }>`
+  width: calc(
+    100vw - ${({ isSideBarOpen }) => (isSideBarOpen ? "240px" : "64px")}
+  );
   padding: 0 26px 10px;
   flex: 1;
   display: flex;

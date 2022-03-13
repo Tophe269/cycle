@@ -7,14 +7,16 @@ import SideBar from "./SideBar";
 type SideBarContainerProps = { currentPage: string };
 
 export type SideBarProps = SideBarContainerProps & {
-  isMenuOpen: boolean;
+  isSideBarOpen: boolean;
   toggleMenu: () => void;
 };
 
 const SideBarContainer = (props: SideBarContainerProps): JSX.Element => {
-  const { isMenuOpen, toggleMenu } = useContext(ToggleMenuContext);
+  const { isSideBarOpen, toggleMenu } = useContext(ToggleMenuContext);
 
-  return <SideBar {...props} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />;
+  return (
+    <SideBar {...props} isSideBarOpen={isSideBarOpen} toggleMenu={toggleMenu} />
+  );
 };
 
 export default SideBarContainer;

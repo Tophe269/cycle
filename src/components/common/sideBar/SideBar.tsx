@@ -4,21 +4,20 @@ import {
   LinksUl,
   LinksLi,
   BoardsUl,
-  BoardsLi,
-  BoardsLinksUl,
-  BoardsLinksLi,
   TogglerDiv,
   TogglerIconDiv,
 } from "./styles";
 import Image from "next/image";
+import MenuBoard from "./MenuBoard";
+import BoardLink from "./BoardLink";
 
 import { menuLinks, boards } from "@/constants/menu";
 
 import { MenuLink, BoardMenu } from "@/types/menu";
 import { SideBarProps } from "./index";
 
-const SideBar = ({ currentPage, isMenuOpen, toggleMenu }: SideBarProps) => (
-  <Nav isMenuOpen={isMenuOpen}>
+const SideBar = ({ currentPage, isSideBarOpen, toggleMenu }: SideBarProps) => (
+  <Nav isSideBarOpen={isSideBarOpen}>
     <LinksUl>
       {menuLinks.map(({ icon, text, slug }: MenuLink) => (
         <LinksLi key={slug}>
@@ -29,23 +28,25 @@ const SideBar = ({ currentPage, isMenuOpen, toggleMenu }: SideBarProps) => (
     </LinksUl>
     <BoardsUl>
       {boards.map(({ title, slug: boardSlug, links }: BoardMenu) => (
-        <BoardsLi key={boardSlug}>
-          <div>
-            <div>{title}</div>
-            <BoardsLinksUl>
-              {links.map(({ slug, text, icon }: MenuLink) => (
-                <BoardsLinksLi key={`${boardSlug}-${slug}`}>
-                  <span>{icon}</span>
-                  <Link href={slug}>{text}</Link>
-                </BoardsLinksLi>
-              ))}
-            </BoardsLinksUl>
-          </div>
-        </BoardsLi>
+        <MenuBoard
+          key={boardSlug}
+          title={title}
+          boardSlug={boardSlug}
+          isSideBarOpen={isSideBarOpen}
+        >
+          {links.map((menuLink: MenuLink) => (
+            <BoardLink
+              key={`${boardSlug}-${menuLink.slug}`}
+              {...menuLink}
+              currentPage={currentPage}
+              isSideBarOpen={isSideBarOpen}
+            />
+          ))}
+        </MenuBoard>
       ))}
     </BoardsUl>
     <TogglerDiv onClick={toggleMenu}>
-      <TogglerIconDiv isMenuOpen={isMenuOpen}>
+      <TogglerIconDiv isSideBarOpen={isSideBarOpen}>
         <Image
           src={`/icons/select.svg`}
           alt="Toggle menu"

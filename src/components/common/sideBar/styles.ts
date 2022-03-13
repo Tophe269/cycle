@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const Nav = styled.nav<{ isMenuOpen: boolean }>`
+const Nav = styled.nav<{ isSideBarOpen: boolean }>`
   color: ${({ theme: { color } }) => color};
   background-color: ${({ theme: { bgColor } }) => bgColor};
   height: 100vh;
-  width: ${({ isMenuOpen }) => (isMenuOpen ? "240px" : "64px")};
+  width: ${({ isSideBarOpen }) => (isSideBarOpen ? "240px" : "64px")};
   position: relative;
   transition: width 0.8s;
 `;
@@ -20,18 +20,116 @@ const LinksLi = styled.li``;
 const BoardsUl = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 17px 0 0 0;
 `;
 
 const BoardsLi = styled.li``;
 
+const BoardsLiTitleDiv = styled.div<{ isSideBarOpen: boolean }>`
+  margin: 4px 0 4px 16px;
+  height: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: ${({ theme: { hlColor } }) => hlColor};
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  `
+      : ""}
+  transition: margin  0.5s, opacity 0.5s,height 0.5s;
+`;
+const BoardsLiTitleIconSpan = styled.span``;
+
 const BoardsLinksUl = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 16px;
 `;
 
-const BoardsLinksLi = styled.li``;
+const BoardsLinksLi = styled.li<{ active: boolean; isSideBarOpen: boolean }>`
+  padding: 4px 0;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: 400;
+  &:hover {
+    color: ${({ theme: { hvColor } }) => hvColor};
+    background-color: ${({ theme: { hvBgColor } }) => hvBgColor};
+  }
+  transition: background-color 0.5s;
+  ${({ active, theme: { hlColor, hlBgColor } }) =>
+    active
+      ? `
+  font-weight: 600;
+  color: ${hlColor};
+  background-color: ${hlBgColor};
+  `
+      : ""}
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  margin-top: 8px;
+  `
+      : ""}
+  transition: margin 0.5s;
+`;
+
+const BoardsLinksIconSpan = styled.span<{ isSideBarOpen: boolean }>`
+  width: 16px;
+  height: 20px;
+  margin: 0 12px 0 28px;
+  font-size: 15px;
+  flex: none;
+  flex-grow: 0;
+  line-height: 18px;
+  text-align: center;
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  margin: 0 8px 0 9px;
+  line-height: 24px;
+  font-size: 15px;
+  `
+      : ""}
+  transition: margin 0.5s, line-height 0.5s, font-size 0.5;
+`;
+
+const BoardsLinksTextSpan = styled.span<{ isSideBarOpen: boolean }>`
+  flex: none;
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 24px;
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  opacity: 0;
+  `
+      : ""}
+  transition: opacity 0.5s;
+`;
+
+const BoardsLinksMoreSpan = styled.span`
+  height: 20px;
+  width: 20px;
+  margin: 0px 8px;
+  flex: none;
+  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  border-radius: 4px;
+  background-color: ${({ theme: { hvBgMoreColor } }) => hvBgMoreColor};
+  &:hover {
+    opacity: 1;
+  }
+  transition: opacity 0.5s;
+`;
 
 const TogglerDiv = styled.div`
   position: absolute;
@@ -53,7 +151,7 @@ const TogglerDiv = styled.div`
   cursor: pointer;
 `;
 
-const TogglerIconDiv = styled.div<{ isMenuOpen: boolean }>`
+const TogglerIconDiv = styled.div<{ isSideBarOpen: boolean }>`
   position: absolute;
   top: 16px;
   left: 0;
@@ -65,8 +163,8 @@ const TogglerIconDiv = styled.div<{ isMenuOpen: boolean }>`
   background: linear-gradient(180deg, #2e48ed 0%, #2740e1 100%);
   border-radius: 50%;
   transform: translateX(-50%) rotate(-180deg);
-  ${({ isMenuOpen }) =>
-    isMenuOpen && "transform: translateX(-50%) rotate(0deg);"}
+  ${({ isSideBarOpen }) =>
+    isSideBarOpen && "transform: translateX(-50%) rotate(0deg);"}
   transition: transform .8s;
 `;
 
@@ -78,6 +176,11 @@ export {
   BoardsLi,
   BoardsLinksUl,
   BoardsLinksLi,
+  BoardsLiTitleDiv,
+  BoardsLiTitleIconSpan,
+  BoardsLinksIconSpan,
+  BoardsLinksTextSpan,
+  BoardsLinksMoreSpan,
   TogglerDiv,
   TogglerIconDiv,
 };
