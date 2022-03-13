@@ -3,6 +3,8 @@ import {
   SeparatorHr,
   LinksUl,
   BoardsUl,
+  NewSectionDiv,
+  NewSectionIconSpan,
   TogglerDiv,
   TogglerIconDiv,
 } from "./styles";
@@ -11,6 +13,7 @@ import AccountAndConfig from "./AccountAndConfig";
 import MenuBoard from "./MenuBoard";
 import BoardLink from "./BoardLink";
 import MenuSimpleLink from "./MenuSimpleLink";
+import Create from "../../../../public/icons/create.svg";
 
 import { menuLinks, boards } from "@/constants/menu";
 
@@ -37,6 +40,7 @@ const SideBar = ({
       ))}
     </LinksUl>
     <SeparatorHr />
+
     <BoardsUl>
       {boards.map(({ title, slug: boardSlug, links }: BoardMenu) => (
         <MenuBoard
@@ -57,7 +61,14 @@ const SideBar = ({
           ))}
         </MenuBoard>
       ))}
+      <NewSectionDiv>
+        <NewSectionIconSpan>
+          <Create />
+        </NewSectionIconSpan>
+        New section
+      </NewSectionDiv>
     </BoardsUl>
+
     <TogglerDiv onClick={toggleSideBar}>
       <TogglerIconDiv isSideBarOpen={isSideBarOpen}>
         <Image

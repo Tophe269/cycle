@@ -367,6 +367,42 @@ const BoardsLinksMoreSpan = styled.span`
   transition: opacity 0.5s;
 `;
 
+const NewSectionIconSpan = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8.75px;
+  width: 10.5px;
+  height: 10.5px;
+  svg {
+    width: 10.5px;
+    height: 10.5px;
+    path {
+      fill: #707070;
+      transition: fill 0.5s;
+    }
+  }
+`;
+
+const NewSectionDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex: none;
+  flex-grow: 1;
+  margin: 0px 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #707070;
+  &:hover {
+    color: ${({ theme: { hvColor } }) => hvColor};
+    path {
+      fill: ${({ theme: { hvColor } }) => hvColor};
+    }
+  }
+  transition: color 0.5s;
+`;
+
 const TogglerDiv = styled.div`
   position: absolute;
   top: 0;
@@ -428,6 +464,8 @@ export {
   BoardsLinksIconSpan,
   BoardsLinksTextSpan,
   BoardsLinksMoreSpan,
+  NewSectionDiv,
+  NewSectionIconSpan,
   TogglerDiv,
   TogglerIconDiv,
 };
