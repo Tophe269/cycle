@@ -2,7 +2,7 @@ export type MenuLink = {
   icon: string;
   slug: string;
   text: string;
-  cmd?: string[];
+  letters?: string[];
 };
 
 export type BoardMenu = {

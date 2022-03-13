@@ -11,7 +11,7 @@ export type FramesetProps = FramesetContainerProps & {
 };
 
 const FramesetContainer = (props: FramesetContainerProps): JSX.Element => {
-  const { isSideBarOpen, toggleSideBar } = useContext(ToggleSideBarContext);
+  const { isSideBarOpen } = useContext(ToggleSideBarContext);
 
   return <Frameset {...props} isSideBarOpen={isSideBarOpen} />;
 };

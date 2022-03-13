@@ -1,16 +1,21 @@
 import { MenuLink, BoardMenu } from "@/types/menu";
 
 const menuLinks: MenuLink[] = [
-  { icon: "search", text: "Search", slug: "search", cmd: [] },
+  { icon: "search", text: "Search", slug: "search", letters: [] },
   {
     icon: "notifications",
     text: "Notifications",
     slug: "notifications",
-    cmd: [],
+    letters: [],
   },
-  { icon: "commands", text: "Commands", slug: "commands", cmd: [] },
-  { icon: "create", text: "Create doc", slug: "create-doc", cmd: [] },
-  { icon: "all-docs", text: "All docs", slug: "all-docs", cmd: [] },
+  {
+    icon: "commands",
+    text: "Commands",
+    slug: "commands",
+    letters: ["cmd", "k"],
+  },
+  { icon: "create", text: "Create doc", slug: "create-doc", letters: [] },
+  { icon: "all-docs", text: "All docs", slug: "all-docs", letters: [] },
 ];
 
 const boards: BoardMenu[] = [

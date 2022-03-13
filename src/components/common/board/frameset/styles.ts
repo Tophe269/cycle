@@ -79,25 +79,27 @@ const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
   width: 270px;
   margin: 8px 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
   ${({ collapsed }) =>
     collapsed
       ? `
-  justify-content: flex-end;
+  // justify-content: flex-end;
   transform: translate(-267px, 0px);
   `
       : ""}
-  transition: transform 0.5s, justify-content 0.5s;
+  transition: all 0.5s;
 `;
 
 const FrameTitleSpan = styled.span<{ collapsed: boolean }>`
-  display: inline-block;
+  display: block;
   padding: 0 24px 0 32px;
-  ${({ collapsed }) => (collapsed ? "transform: rotate(-90deg);" : "")}
-  transition: transform 0.5s;
+  flex-grow: 1;
+  ${({ collapsed }) =>
+    collapsed ? "transform: rotate(-90deg);flex-grow: 0;" : ""}
+  transition: all 0.5s;
   transform-origin: top right;
 `;
 

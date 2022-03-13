@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import MenuBoard from "./MenuBoard";
 import BoardLink from "./BoardLink";
+import MenuSimpleLink from "./MenuSimpleLink";
 
 import { menuLinks, boards } from "@/constants/menu";
 
@@ -25,35 +26,34 @@ const SideBar = ({
 }: SideBarProps) => (
   <Nav isSideBarOpen={isSideBarOpen}>
     <LinksUl>
-      {menuLinks.map(({ icon, text, slug }: MenuLink) => (
-        <LinksLi key={slug}>
-          <Image src={`/icons/${icon}.svg`} alt="Logo" width={14} height={14} />
-          <Link href={slug}>{text}</Link>
-        </LinksLi>
+      {menuLinks.map((menuLink: MenuLink) => (
+        <MenuSimpleLink
+          key={menuLink.slug}
+          {...menuLink}
+          isSideBarOpen={isSideBarOpen}
+        />
       ))}
     </LinksUl>
     <BoardsUl>
-      {boards.map(
-        ({ title, slug: boardSlug, links }: BoardMenu) => (
-          <MenuBoard
-            key={boardSlug}
-            title={title}
-            boardSlug={boardSlug}
-            isSideBarOpen={isSideBarOpen}
-            openMenuSlug={openMenuSlug}
-            openThisMenu={openAMenu(boardSlug)}
-          >
-            {links.map((menuLink: MenuLink) => (
-              <BoardLink
-                key={`${boardSlug}-${menuLink.slug}`}
-                {...menuLink}
-                currentPage={currentPage}
-                isSideBarOpen={isSideBarOpen}
-              />
-            ))}
-          </MenuBoard>
-        ),
-      )}
+      {boards.map(({ title, slug: boardSlug, links }: BoardMenu) => (
+        <MenuBoard
+          key={boardSlug}
+          title={title}
+          boardSlug={boardSlug}
+          isSideBarOpen={isSideBarOpen}
+          openMenuSlug={openMenuSlug}
+          openThisMenu={openAMenu(boardSlug)}
+        >
+          {links.map((menuLink: MenuLink) => (
+            <BoardLink
+              key={`${boardSlug}-${menuLink.slug}`}
+              {...menuLink}
+              currentPage={currentPage}
+              isSideBarOpen={isSideBarOpen}
+            />
+          ))}
+        </MenuBoard>
+      ))}
     </BoardsUl>
     <TogglerDiv onClick={toggleSideBar}>
       <TogglerIconDiv isSideBarOpen={isSideBarOpen}>

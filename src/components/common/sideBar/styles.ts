@@ -11,11 +11,45 @@ const Nav = styled.nav<{ isSideBarOpen: boolean }>`
 
 const LinksUl = styled.ul`
   list-style: none;
-  padding: 0;
+  padding: 0 16px;
   margin: 0;
 `;
 
-const LinksLi = styled.li``;
+const LinksLi = styled.li`
+  display: flex;
+  padding: 4px 8px 4px 9px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: ${({ theme: { color } }) => color};
+  border-radius: 4px;
+  overflow: hidden;
+  &:hover {
+    color: ${({ theme: { hvColor } }) => hvColor};
+    background: ${({ theme: { hvBgLinkColor } }) => hvBgLinkColor};
+    svg path {
+      fill: ${({ theme: { hvColor } }) => hvColor};
+    }
+  }
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+`;
+const LinksLiIconSpan = styled.span`
+  flex: none;
+  flex-grow: 0;
+  margin-right: 9px;
+`;
+const LinksLiTextSpan = styled.span`
+  flex: none;
+  flex-grow: 1;
+`;
+const LinksLiLetterSpan = styled.span`
+  flex: none;
+  flex-grow: 0;
+  margin-left: 8px;
+`;
 
 const BoardsUl = styled.ul`
   list-style: none;
@@ -41,7 +75,7 @@ const BoardsLiTitleDiv = styled.div<{ isSideBarOpen: boolean }>`
   margin: 0;
   `
       : ""}
-  transition: margin  0.5s, opacity 0.5s,height 0.5s;
+  transition: margin 0.5s, opacity 0.5s, height 0.5s;
 `;
 const BoardsLiTitleIconSpan = styled.span``;
 
@@ -101,7 +135,7 @@ const BoardsLinksIconSpan = styled.span<{ isSideBarOpen: boolean }>`
   font-size: 15px;
   `
       : ""}
-  transition: margin 0.5s, line-height 0.5s, font-size 0.5;
+  transition: all 0.5s;
 `;
 
 const BoardsLinksTextSpan = styled.span<{ isSideBarOpen: boolean }>`
@@ -177,6 +211,9 @@ export {
   Nav,
   LinksUl,
   LinksLi,
+  LinksLiIconSpan,
+  LinksLiTextSpan,
+  LinksLiLetterSpan,
   BoardsUl,
   BoardsLi,
   BoardsLinksUl,
