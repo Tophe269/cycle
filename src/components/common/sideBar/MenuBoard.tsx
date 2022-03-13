@@ -1,4 +1,4 @@
-import { ReactNode, Dispatch, SetStateAction } from "react";
+import { ReactNode } from "react";
 
 import {
   BoardsLi,
@@ -6,7 +6,8 @@ import {
   BoardsLiTitleIconSpan,
   BoardsLinksUl,
 } from "./styles";
-import Image from "next/image";
+
+import Down from "../../../../public/icons/down-w.svg";
 
 type MenuBoardProps = {
   boardSlug: string;
@@ -26,14 +27,13 @@ const MenuBoard = ({
   openThisMenu,
 }: MenuBoardProps) => (
   <BoardsLi key={boardSlug}>
-    <BoardsLiTitleDiv isSideBarOpen={isSideBarOpen} onClick={openThisMenu}>
-      <BoardsLiTitleIconSpan>
-        <Image
-          src={`/icons/down-w.svg`}
-          alt="Toggle menu"
-          width={7}
-          height={6}
-        />
+    <BoardsLiTitleDiv
+      isSideBarOpen={isSideBarOpen}
+      onClick={openThisMenu}
+      isMenuOpen={boardSlug === openMenuSlug}
+    >
+      <BoardsLiTitleIconSpan isMenuOpen={boardSlug === openMenuSlug}>
+        <Down />
       </BoardsLiTitleIconSpan>
       {title}
     </BoardsLiTitleDiv>

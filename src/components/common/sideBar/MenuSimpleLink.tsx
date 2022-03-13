@@ -5,11 +5,11 @@ import {
   LinksLiTextSpan,
   LinksLiLetterSpan,
 } from "./styles";
-import Image from "next/image";
 
 import { MenuLink } from "@/types/menu";
 
 import Icons from "./Icons";
+import Letters from "./Letters";
 
 type MenuSimpleLinkProps = MenuLink & {
   isSideBarOpen: boolean;
@@ -25,16 +25,13 @@ const MenuSimpleLink = ({
   <Link href={slug} passHref>
     <a>
       <LinksLi>
-        <LinksLiIconSpan>{Icons[icon]}</LinksLiIconSpan>
-        <LinksLiTextSpan>{text}</LinksLiTextSpan>
+        <LinksLiIconSpan isSideBarOpen={isSideBarOpen}>
+          {Icons[icon]}
+        </LinksLiIconSpan>
+        <LinksLiTextSpan isSideBarOpen={isSideBarOpen}>{text}</LinksLiTextSpan>
         {letters?.map((letter: string) => (
           <LinksLiLetterSpan key={`Letter-${letter}`}>
-            <Image
-              src={`/letters/${letter}.svg`}
-              alt={`Letter ${letter}`}
-              width={16}
-              height={16}
-            />
+            {Letters[letter]}
           </LinksLiLetterSpan>
         ))}
       </LinksLi>

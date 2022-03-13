@@ -27,7 +27,7 @@ const SideBar = ({
   <Nav isSideBarOpen={isSideBarOpen}>
     <AccountAndConfig isSideBarOpen={isSideBarOpen} />
     <SeparatorHr />
-    <LinksUl>
+    <LinksUl isSideBarOpen={isSideBarOpen}>
       {menuLinks.map((menuLink: MenuLink) => (
         <MenuSimpleLink
           key={menuLink.slug}
