@@ -1,27 +1,26 @@
 import { Doc } from "@/types/board";
 
-import { DocumentWrapper, Tags, Tag, Check, More } from "./styles";
+import { DocumentWrapperDiv, TagsDiv, CheckDiv, MoreDiv } from "./styles";
 import Image from "next/image";
+import TagLabel from "./TagLabel";
 
 const Document = ({ id, text, tags, icon }: Doc) => (
-  <DocumentWrapper>
+  <DocumentWrapperDiv>
     {text}
-    <Tags>
-      <Tag>{icon}</Tag>
-      <Tag>#{id}</Tag>
-      {tags.map(({ text: tagText, color }) => (
-        <Tag key={tagText} color={color}>
-          {tagText}
-        </Tag>
+    <TagsDiv>
+      <TagLabel text={icon} />
+      <TagLabel text={`#${id}`} />
+      {tags.map(tag => (
+        <TagLabel key={tag.text} {...tag} />
       ))}
-    </Tags>
-    <Check>
+    </TagsDiv>
+    <CheckDiv>
       <Image src={`/icons/check.svg`} alt="check" width={8} height={7} />
-    </Check>
-    <More>
+    </CheckDiv>
+    <MoreDiv>
       <Image src={`/icons/more.svg`} alt="more" layout="fill" />
-    </More>
-  </DocumentWrapper>
+    </MoreDiv>
+  </DocumentWrapperDiv>
 );
 
 export default Document;

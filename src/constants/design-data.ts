@@ -39,7 +39,10 @@ export const designBoard: DocGroup[] = [
         icon: "🌟",
         tags: [
           { text: "Design", color: "blue" },
-          { text: "Sprint 4", color: "pink" },
+          {
+            text: "New features: Implemente the new doc editor features",
+            color: "lightBlue",
+          },
         ],
       },
       {

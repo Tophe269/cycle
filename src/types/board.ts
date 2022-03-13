@@ -1,4 +1,4 @@
-export type Tag = { text: string; color: string };
+export type Tag = { text: string; color?: string };
 
 export type Doc = {
   id: string;

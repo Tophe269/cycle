@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Check = styled.div`
+const CheckDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@ const Check = styled.div`
   transition: opacity 0.5s;
 `;
 
-const More = styled.div`
+const MoreDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@ const More = styled.div`
   transition: opacity 0.5s;
 `;
 
-const DocumentWrapper = styled.div`
+const DocumentWrapperDiv = styled.div`
   position: relative;
   width: 254px;
   padding: 8px 8px 10px 8px;
@@ -45,23 +45,42 @@ const DocumentWrapper = styled.div`
   &:hover {
     box-shadow: 0px 1px 4px rgba(75, 75, 75, 0.15);
   }
-  &:hover ${Check}, &:hover ${More} {
+  &:hover ${CheckDiv}, &:hover ${MoreDiv} {
     opacity: 1;
   }
 `;
 
-const Tags = styled.div`
+const TagsDiv = styled.div`
   display: flex;
   margin-top: 8px;
 `;
 
-const Tag = styled.div<{ color?: string }>`
-  box-sizing: border-box;
+const TooltipDiv = styled.div<{ top: number; left: number }>`
+  position: fixed;
+  top: ${({ top }) => top - 6}px;
+  left: ${({ left }) => left}px;
+  padding: 6px 8px;
+  transform: translate(-50%, -100%);
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  line-height: 20px;
+  color: #ffffff;
+  display: none;
+  background: #171618;
+  border-radius: 4px;
+  z-index: 2;
+`;
+
+const TagDiv = styled.div<{ color?: string }>`
+  flex-grow: 0;
+  flex-shrink: 1;
   padding: 2px 4px;
   margin-left: 4px;
   &:first-child {
     margin: 0;
   }
+  position: relative;
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
@@ -73,6 +92,12 @@ const Tag = styled.div<{ color?: string }>`
       background-color: ${theme.tags[color].bgColor};
       `
       : "border: 1px solid #E6E6E6;"}
+  &:hover + ${TooltipDiv} {
+    display: block;
+  }
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 `;
 
-export { Check, More, DocumentWrapper, Tags, Tag };
+export { CheckDiv, MoreDiv, DocumentWrapperDiv, TooltipDiv, TagsDiv, TagDiv };

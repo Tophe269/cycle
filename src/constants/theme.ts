@@ -24,9 +24,17 @@ const theme = {
         color: "#102DEA",
         bgColor: "#E2E6FD",
       },
+      lightBlue: {
+        color: "#489FBE",
+        bgColor: "rgba(72, 159, 190, 0.2)",
+      },
       pink: {
         color: "#CC10EA",
         bgColor: "rgba(204, 16, 234, 0.1)",
+      },
+      yellow: {
+        color: "#EA9E10",
+        bgColor: "#FDF3E2",
       },
     },
   },
