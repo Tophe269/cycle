@@ -1,13 +1,13 @@
-import Link from "next/link";
 import {
   Nav,
+  SeparatorHr,
   LinksUl,
-  LinksLi,
   BoardsUl,
   TogglerDiv,
   TogglerIconDiv,
 } from "./styles";
 import Image from "next/image";
+import AccountAndConfig from "./AccountAndConfig";
 import MenuBoard from "./MenuBoard";
 import BoardLink from "./BoardLink";
 import MenuSimpleLink from "./MenuSimpleLink";
@@ -25,6 +25,8 @@ const SideBar = ({
   openAMenu,
 }: SideBarProps) => (
   <Nav isSideBarOpen={isSideBarOpen}>
+    <AccountAndConfig isSideBarOpen={isSideBarOpen} />
+    <SeparatorHr />
     <LinksUl>
       {menuLinks.map((menuLink: MenuLink) => (
         <MenuSimpleLink
@@ -34,6 +36,7 @@ const SideBar = ({
         />
       ))}
     </LinksUl>
+    <SeparatorHr />
     <BoardsUl>
       {boards.map(({ title, slug: boardSlug, links }: BoardMenu) => (
         <MenuBoard

@@ -9,6 +9,129 @@ const Nav = styled.nav<{ isSideBarOpen: boolean }>`
   transition: width 0.8s;
 `;
 
+const SeparatorHr = styled.hr`
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+  height: 1px;
+  border: none;
+  background: #707070;
+  opacity: 0.2;
+`;
+
+const AccountAndConfigDiv = styled.div<{ isSideBarOpen: boolean }>`
+  display: flex;
+  flex: none;
+  flex-grow: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 16px 16px 17px;
+  overflow: hidden;
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  padding: 17px 12px 11.5px;
+  `
+      : ""}
+  transition: padding 0.5s;
+`;
+
+const ConfigDiv = styled.div<{ isSideBarOpen: boolean }>`
+  display: flex;
+  max-width: 100%;
+  padding: 7.5px 8px 7.5px;
+  border-radius: 4px;
+  &:hover {
+    background: ${({ theme: { hvBgLinkColor } }) => hvBgLinkColor};
+  }
+  &:hover {
+    svg path:last-child {
+      transform: rotate(360deg);
+    }
+  }
+  svg path {
+    transform: rotate(0deg);
+    transition: transform 0.5s;
+    transform-origin: center;
+  }
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  padding: 7.5px 10px 7.5px;
+  `
+      : ""}
+  transition: padding 0.5s;
+`;
+
+const AccountDiv = styled.div<{ isSideBarOpen: boolean }>`
+  display: flex;
+  max-width: 100%;
+  padding: 6px 8px 5px 8px;
+  border-radius: 4px;
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  margin-top: 2.5px;
+  `
+      : ""}
+  transition: margin-top .5s;
+  &:hover {
+    background: ${({ theme: { hvBgLinkColor } }) => hvBgLinkColor};
+  }
+`;
+
+const ConfigLogoSpan = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+`;
+
+const ConfigTextSpan = styled.span<{ isSideBarOpen: boolean }>`
+  display: flex;
+  flex-shrink: 1;
+  margin: auto 8px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: ${({ theme: { hlColor } }) => hlColor};
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  opacity: 0;
+  `
+      : ""}
+  transition: opacity 0.5s;
+`;
+
+const AccountAndConfigIconSpan = styled.span<{ isSideBarOpen: boolean }>`
+  display: flex;
+  flex-shrink: 1;
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  opacity: 0;
+  `
+      : ""}
+  transition: opacity 0.5s;
+`;
+
+const AccountAvatarSpan = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 25px;
+  margin-right: 8px;
+  background: #ffffff;
+  border: 2px solid #102dea;
+  border-radius: 100px;
+  overflow: hidden;
+`;
+
 const LinksUl = styled.ul`
   list-style: none;
   padding: 0 16px;
@@ -209,6 +332,14 @@ const TogglerIconDiv = styled.div<{ isSideBarOpen: boolean }>`
 
 export {
   Nav,
+  SeparatorHr,
+  AccountAndConfigDiv,
+  ConfigDiv,
+  AccountDiv,
+  ConfigLogoSpan,
+  ConfigTextSpan,
+  AccountAndConfigIconSpan,
+  AccountAvatarSpan,
   LinksUl,
   LinksLi,
   LinksLiIconSpan,
