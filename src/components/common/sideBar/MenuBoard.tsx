@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, Dispatch, SetStateAction } from "react";
 
 import {
   BoardsLi,
@@ -13,6 +13,8 @@ type MenuBoardProps = {
   title: string;
   isSideBarOpen: boolean;
   children: ReactNode;
+  openMenuSlug: string;
+  openThisMenu: () => void;
 };
 
 const MenuBoard = ({
@@ -20,9 +22,11 @@ const MenuBoard = ({
   title,
   isSideBarOpen,
   children,
+  openMenuSlug,
+  openThisMenu,
 }: MenuBoardProps) => (
   <BoardsLi key={boardSlug}>
-    <BoardsLiTitleDiv isSideBarOpen={isSideBarOpen}>
+    <BoardsLiTitleDiv isSideBarOpen={isSideBarOpen} onClick={openThisMenu}>
       <BoardsLiTitleIconSpan>
         <Image
           src={`/icons/down-w.svg`}
@@ -33,7 +37,9 @@ const MenuBoard = ({
       </BoardsLiTitleIconSpan>
       {title}
     </BoardsLiTitleDiv>
-    <BoardsLinksUl>{children}</BoardsLinksUl>
+    <BoardsLinksUl isOpen={boardSlug === openMenuSlug}>
+      {children}
+    </BoardsLinksUl>
   </BoardsLi>
 );
 

@@ -32,6 +32,7 @@ const BoardsLiTitleDiv = styled.div<{ isSideBarOpen: boolean }>`
   font-size: 14px;
   line-height: 24px;
   color: ${({ theme: { hlColor } }) => hlColor};
+  cursor: pointer;
   ${({ isSideBarOpen }) =>
     !isSideBarOpen
       ? `
@@ -44,10 +45,14 @@ const BoardsLiTitleDiv = styled.div<{ isSideBarOpen: boolean }>`
 `;
 const BoardsLiTitleIconSpan = styled.span``;
 
-const BoardsLinksUl = styled.ul`
+const BoardsLinksUl = styled.ul<{ isOpen: boolean }>`
   list-style: none;
   padding: 0;
   margin: 0 16px;
+  max-height: 300px;
+  overflow: hidden;
+  ${({ isOpen }) => (!isOpen ? "max-height: 0;" : "")}
+  transition: max-height 0.5s;
 `;
 
 const BoardsLinksLi = styled.li<{ active: boolean; isSideBarOpen: boolean }>`

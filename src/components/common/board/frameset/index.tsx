@@ -1,6 +1,6 @@
 import { useContext, ReactNode } from "react";
 
-import ToggleMenuContext from "@/contexts/ToggleMenuContext";
+import ToggleSideBarContext from "@/contexts/ToggleSideBarContext";
 
 import Frameset from "./Frameset";
 
@@ -11,7 +11,7 @@ export type FramesetProps = FramesetContainerProps & {
 };
 
 const FramesetContainer = (props: FramesetContainerProps): JSX.Element => {
-  const { isSideBarOpen, toggleMenu } = useContext(ToggleMenuContext);
+  const { isSideBarOpen, toggleSideBar } = useContext(ToggleSideBarContext);
 
   return <Frameset {...props} isSideBarOpen={isSideBarOpen} />;
 };

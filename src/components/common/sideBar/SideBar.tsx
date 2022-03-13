@@ -16,7 +16,13 @@ import { menuLinks, boards } from "@/constants/menu";
 import { MenuLink, BoardMenu } from "@/types/menu";
 import { SideBarProps } from "./index";
 
-const SideBar = ({ currentPage, isSideBarOpen, toggleMenu }: SideBarProps) => (
+const SideBar = ({
+  currentPage,
+  isSideBarOpen,
+  toggleSideBar,
+  openMenuSlug,
+  openAMenu,
+}: SideBarProps) => (
   <Nav isSideBarOpen={isSideBarOpen}>
     <LinksUl>
       {menuLinks.map(({ icon, text, slug }: MenuLink) => (
@@ -27,25 +33,29 @@ const SideBar = ({ currentPage, isSideBarOpen, toggleMenu }: SideBarProps) => (
       ))}
     </LinksUl>
     <BoardsUl>
-      {boards.map(({ title, slug: boardSlug, links }: BoardMenu) => (
-        <MenuBoard
-          key={boardSlug}
-          title={title}
-          boardSlug={boardSlug}
-          isSideBarOpen={isSideBarOpen}
-        >
-          {links.map((menuLink: MenuLink) => (
-            <BoardLink
-              key={`${boardSlug}-${menuLink.slug}`}
-              {...menuLink}
-              currentPage={currentPage}
-              isSideBarOpen={isSideBarOpen}
-            />
-          ))}
-        </MenuBoard>
-      ))}
+      {boards.map(
+        ({ title, slug: boardSlug, links }: BoardMenu) => (
+          <MenuBoard
+            key={boardSlug}
+            title={title}
+            boardSlug={boardSlug}
+            isSideBarOpen={isSideBarOpen}
+            openMenuSlug={openMenuSlug}
+            openThisMenu={openAMenu(boardSlug)}
+          >
+            {links.map((menuLink: MenuLink) => (
+              <BoardLink
+                key={`${boardSlug}-${menuLink.slug}`}
+                {...menuLink}
+                currentPage={currentPage}
+                isSideBarOpen={isSideBarOpen}
+              />
+            ))}
+          </MenuBoard>
+        ),
+      )}
     </BoardsUl>
-    <TogglerDiv onClick={toggleMenu}>
+    <TogglerDiv onClick={toggleSideBar}>
       <TogglerIconDiv isSideBarOpen={isSideBarOpen}>
         <Image
           src={`/icons/select.svg`}
