@@ -61,7 +61,7 @@ const SideBar = ({
           ))}
         </MenuBoard>
       ))}
-      <NewSectionDiv>
+      <NewSectionDiv isSideBarOpen={isSideBarOpen}>
         <NewSectionIconSpan>
           <Create />
         </NewSectionIconSpan>

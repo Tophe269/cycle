@@ -384,7 +384,7 @@ const NewSectionIconSpan = styled.span`
   }
 `;
 
-const NewSectionDiv = styled.div`
+const NewSectionDiv = styled.div<{ isSideBarOpen: boolean }>`
   display: flex;
   align-items: center;
   flex: none;
@@ -400,7 +400,15 @@ const NewSectionDiv = styled.div`
       fill: ${({ theme: { hvColor } }) => hvColor};
     }
   }
-  transition: color 0.5s;
+  ${({ isSideBarOpen }) =>
+    !isSideBarOpen
+      ? `
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  `
+      : ""}
+  transition: margin 0.5s, opacity 0.5s, height 0.5s, color 0.5s;
 `;
 
 const TogglerDiv = styled.div`
