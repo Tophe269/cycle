@@ -11,7 +11,7 @@ import { MenuLink } from "@/types/menu";
 
 type BoardLinkProps = MenuLink & {
   currentPage: string;
-  isSideBarOpen: boolean;
+  isSideBarExtended: boolean;
 };
 
 const BoardLink = ({
@@ -19,18 +19,18 @@ const BoardLink = ({
   text,
   icon,
   currentPage,
-  isSideBarOpen,
-}: BoardLinkProps) => (
+  isSideBarExtended,
+}: BoardLinkProps): JSX.Element => (
   <Link href={slug} passHref>
     <a>
       <BoardsLinksLi
         active={currentPage === slug}
-        isSideBarOpen={isSideBarOpen}
+        isSideBarExtended={isSideBarExtended}
       >
-        <BoardsLinksIconSpan isSideBarOpen={isSideBarOpen}>
+        <BoardsLinksIconSpan isSideBarExtended={isSideBarExtended}>
           {icon}
         </BoardsLinksIconSpan>
-        <BoardsLinksTextSpan isSideBarOpen={isSideBarOpen}>
+        <BoardsLinksTextSpan isSideBarExtended={isSideBarExtended}>
           {text}
         </BoardsLinksTextSpan>
         <BoardsLinksMoreSpan>

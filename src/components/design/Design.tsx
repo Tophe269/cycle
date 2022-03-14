@@ -5,21 +5,26 @@ import {
   NewGroupDiv,
   NewGroupSpan,
 } from "@/components/common/board/frameset/styles";
-import Image from "next/image";
+import New from "../../../public/icons/new.svg";
 
 import { DesignProps } from "./index";
+import { DocGroup, Doc } from "@/types/board";
 
-const Design = ({ board }: DesignProps) => (
+const Design = ({ board }: DesignProps): JSX.Element => (
   <FrameSet>
-    {board.map(({ slug, icon: titleIcon, title, docs }) => (
-      <Frame key={slug} titleIcon={titleIcon} title={title}>
-        {docs.map(({ id, text, tags, icon }) => (
-          <Document key={id} id={id} text={text} tags={tags} icon={icon} />
-        ))}
-      </Frame>
-    ))}
+    {board.map(
+      ({ slug, icon: titleIcon, title, docs }: DocGroup): JSX.Element => (
+        <Frame key={slug} titleIcon={titleIcon} title={title}>
+          {docs.map(
+            ({ id, text, tags, icon }: Doc): JSX.Element => (
+              <Document key={id} id={id} text={text} tags={tags} icon={icon} />
+            ),
+          )}
+        </Frame>
+      ),
+    )}
     <NewGroupDiv>
-      <Image src={`/icons/new.svg`} alt="New doc" width={7} height={7} />
+      <New width={7} height={7} />
       <NewGroupSpan>New group</NewGroupSpan>
     </NewGroupDiv>
   </FrameSet>

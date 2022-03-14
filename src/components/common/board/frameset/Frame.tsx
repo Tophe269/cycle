@@ -10,9 +10,9 @@ import {
   ScrollWrapperDiv,
   NewDocDiv,
   NewDocSpan,
-
 } from "./styles";
-import Image from "next/image";
+import Down from "../../../../../public/icons/down.svg";
+import New from "../../../../../public/icons/new.svg";
 
 type FrameProps = {
   titleIcon: string;
@@ -31,7 +31,7 @@ const Frame = ({ titleIcon, title, children }: FrameProps): JSX.Element => {
         }}
         collapsed={collapsed}
       >
-        <Image src={`/icons/down.svg`} alt="Collapse" width={7} height={6} />
+        <Down width={7} height={6} />
       </DownSpan>
       <FrameTitleDiv collapsed={collapsed}>
         <FrameTitleSpan collapsed={collapsed}>
@@ -42,7 +42,7 @@ const Frame = ({ titleIcon, title, children }: FrameProps): JSX.Element => {
       <ScrollWrapperDiv collapsed={collapsed}>
         {children}
         <NewDocDiv>
-          <Image src={`/icons/new.svg`} alt="New doc" width={7} height={7} />
+          <New width={7} height={7} />
           <NewDocSpan>New doc</NewDocSpan>
         </NewDocDiv>
       </ScrollWrapperDiv>

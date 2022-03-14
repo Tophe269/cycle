@@ -4,7 +4,7 @@ import { DocumentWrapperDiv, TagsDiv, CheckDiv, MoreDiv } from "./styles";
 import Image from "next/image";
 import TagLabel from "./TagLabel";
 
-const Document = ({ id, text, tags, icon }: Doc) => (
+const Document = ({ id, text, tags, icon }: Doc): JSX.Element => (
   <DocumentWrapperDiv>
     {text}
     <TagsDiv>

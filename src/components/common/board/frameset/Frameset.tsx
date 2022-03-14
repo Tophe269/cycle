@@ -2,8 +2,11 @@ import { FrameSetMain } from "./styles";
 
 import { FramesetProps } from "./index";
 
-const FrameSet = ({ children, isSideBarOpen }: FramesetProps): JSX.Element => (
-  <FrameSetMain isSideBarOpen={isSideBarOpen}>{children}</FrameSetMain>
+const FrameSet = ({
+  children,
+  isSideBarExtended,
+}: FramesetProps): JSX.Element => (
+  <FrameSetMain isSideBarExtended={isSideBarExtended}>{children}</FrameSetMain>
 );
 
 export default FrameSet;

@@ -12,25 +12,29 @@ import Image from "next/image";
 import Logo from "../../../../public/logo.svg";
 
 type AccountAndConfigProps = {
-  isSideBarOpen: boolean;
+  isSideBarExtended: boolean;
 };
 
-const AccountAndConfig = ({ isSideBarOpen }: AccountAndConfigProps) => (
-  <AccountAndConfigDiv isSideBarOpen={isSideBarOpen}>
-    <ConfigDiv isSideBarOpen={isSideBarOpen}>
+const AccountAndConfig = ({
+  isSideBarExtended,
+}: AccountAndConfigProps): JSX.Element => (
+  <AccountAndConfigDiv isSideBarExtended={isSideBarExtended}>
+    <ConfigDiv isSideBarExtended={isSideBarExtended}>
       <ConfigLogoSpan>
         <Logo width="20" height="20" />
       </ConfigLogoSpan>
-      <ConfigTextSpan isSideBarOpen={isSideBarOpen}>Cycle</ConfigTextSpan>
-      <AccountAndConfigIconSpan isSideBarOpen={isSideBarOpen}>
+      <ConfigTextSpan isSideBarExtended={isSideBarExtended}>
+        Cycle
+      </ConfigTextSpan>
+      <AccountAndConfigIconSpan isSideBarExtended={isSideBarExtended}>
         <Image src="/icons/selectG.svg" alt="open" width={8} height={5} />
       </AccountAndConfigIconSpan>
     </ConfigDiv>
-    <AccountDiv isSideBarOpen={isSideBarOpen}>
+    <AccountDiv isSideBarExtended={isSideBarExtended}>
       <AccountAvatarSpan>
         <Image src="/avatar.jpg" alt="open" width={18} height={18.75} />
       </AccountAvatarSpan>
-      <AccountAndConfigIconSpan isSideBarOpen={isSideBarOpen}>
+      <AccountAndConfigIconSpan isSideBarExtended={isSideBarExtended}>
         <Image src="/icons/selectG.svg" alt="open" width={8} height={5} />
       </AccountAndConfigIconSpan>
     </AccountDiv>

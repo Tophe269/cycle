@@ -12,7 +12,7 @@ import Icons from "./Icons";
 import Letters from "./Letters";
 
 type MenuSimpleLinkProps = MenuLink & {
-  isSideBarOpen: boolean;
+  isSideBarExtended: boolean;
 };
 
 const MenuSimpleLink = ({
@@ -20,20 +20,24 @@ const MenuSimpleLink = ({
   text,
   icon,
   letters,
-  isSideBarOpen,
-}: MenuSimpleLinkProps) => (
+  isSideBarExtended,
+}: MenuSimpleLinkProps): JSX.Element => (
   <Link href={slug} passHref>
     <a>
       <LinksLi>
-        <LinksLiIconSpan isSideBarOpen={isSideBarOpen}>
+        <LinksLiIconSpan isSideBarExtended={isSideBarExtended}>
           {Icons[icon]}
         </LinksLiIconSpan>
-        <LinksLiTextSpan isSideBarOpen={isSideBarOpen}>{text}</LinksLiTextSpan>
-        {letters?.map((letter: string) => (
-          <LinksLiLetterSpan key={`Letter-${letter}`}>
-            {Letters[letter]}
-          </LinksLiLetterSpan>
-        ))}
+        <LinksLiTextSpan isSideBarExtended={isSideBarExtended}>
+          {text}
+        </LinksLiTextSpan>
+        {letters?.map(
+          (letter: string): JSX.Element => (
+            <LinksLiLetterSpan key={`Letter-${letter}`}>
+              {Letters[letter]}
+            </LinksLiLetterSpan>
+          ),
+        )}
       </LinksLi>
     </a>
   </Link>

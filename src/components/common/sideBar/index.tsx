@@ -9,14 +9,14 @@ import SideBar from "./SideBar";
 type SideBarContainerProps = { currentPage: string };
 
 export type SideBarProps = SideBarContainerProps & {
-  isSideBarOpen: boolean;
+  isSideBarExtended: boolean;
   toggleSideBar: () => void;
   openMenuSlug: string;
   openAMenu: (i: string) => () => void;
 };
 
 const SideBarContainer = (props: SideBarContainerProps): JSX.Element => {
-  const { isSideBarOpen, toggleSideBar } = useContext(ToggleSideBarContext);
+  const { isSideBarExtended, toggleSideBar } = useContext(ToggleSideBarContext);
   const [openMenuSlug, setOpenMenuSlug] = useState<string>(boards[0].slug);
   const openAMenu = useCallback(
     (slug: string) => () => {
@@ -28,7 +28,7 @@ const SideBarContainer = (props: SideBarContainerProps): JSX.Element => {
   return (
     <SideBar
       {...props}
-      isSideBarOpen={isSideBarOpen}
+      isSideBarExtended={isSideBarExtended}
       toggleSideBar={toggleSideBar}
       openMenuSlug={openMenuSlug}
       openAMenu={openAMenu}

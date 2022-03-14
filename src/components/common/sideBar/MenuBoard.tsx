@@ -12,7 +12,7 @@ import Down from "../../../../public/icons/down-w.svg";
 type MenuBoardProps = {
   boardSlug: string;
   title: string;
-  isSideBarOpen: boolean;
+  isSideBarExtended: boolean;
   children: ReactNode;
   openMenuSlug: string;
   openThisMenu: () => void;
@@ -21,14 +21,14 @@ type MenuBoardProps = {
 const MenuBoard = ({
   boardSlug,
   title,
-  isSideBarOpen,
+  isSideBarExtended,
   children,
   openMenuSlug,
   openThisMenu,
-}: MenuBoardProps) => (
+}: MenuBoardProps): JSX.Element => (
   <BoardsLi key={boardSlug}>
     <BoardsLiTitleDiv
-      isSideBarOpen={isSideBarOpen}
+      isSideBarExtended={isSideBarExtended}
       onClick={openThisMenu}
       isMenuOpen={boardSlug === openMenuSlug}
     >

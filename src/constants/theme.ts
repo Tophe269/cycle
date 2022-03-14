@@ -11,6 +11,7 @@ const theme = {
   },
   content: {
     colorPrimary: "#171618",
+    colorSecondary: "#707070",
     bgColor: "#F7F7F7",
     frameBgColor: "#F0F0F0",
     docBgColor: "#FFFFFF",

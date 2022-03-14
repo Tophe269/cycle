@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const FrameSetMain = styled.main<{ isSideBarOpen: boolean }>`
+const FrameSetMain = styled.main<{ isSideBarExtended: boolean }>`
   width: calc(
-    100vw - ${({ isSideBarOpen }) => (isSideBarOpen ? "240px" : "64px")}
+    100vw - ${({ isSideBarExtended }) => (isSideBarExtended ? "240px" : "64px")}
   );
   padding: 0 26px 10px;
   flex: 1;
@@ -24,6 +24,7 @@ const FrameSetMain = styled.main<{ isSideBarOpen: boolean }>`
     border-radius: 3px;
   }
   transition: width 0.8s;
+  color: ${({ theme: { colorPrimary } }) => colorPrimary}; ;
 `;
 
 const NewDocDiv = styled.div`
@@ -34,7 +35,19 @@ const NewDocDiv = styled.div`
   font-size: 12px;
   line-height: 20px;
   border-radius: 4px;
-  transition: background-color 0.5s;
+  color: ${({ theme: { colorSecondary } }) => colorSecondary};
+  svg path {
+    fill: ${({ theme: { colorSecondary } }) => colorSecondary};
+    transition: fill 0.5s;
+  }
+  transition: color 0.5s background-color 0.5s;
+  &:hover {
+    color: ${({ theme: { colorPrimary } }) => colorPrimary};
+    background-color: ${({ theme: { newDocHvBgColor } }) => newDocHvBgColor};
+    svg path {
+      fill: ${({ theme: { colorPrimary } }) => colorPrimary};
+    }
+  }
 `;
 
 const NewDocSpan = styled.span`
@@ -51,11 +64,8 @@ const FrameDiv = styled.div<{ collapsed: boolean }>`
   padding: 0px 0px 12px 0px;
   background-color: ${({ theme: { frameBgColor } }) => frameBgColor};
   border-radius: 8px;
-  &:hover ${NewDocDiv} {
-    background-color: ${({ theme: { newDocHvBgColor } }) => newDocHvBgColor};
-  }
-  ${({ collapsed }) => (collapsed ? "width: 33px;" : "")}
-  transition: width 0.5s;
+  ${({ collapsed }) => collapsed && "width: 33px;"}
+  transition: width 0.5s, background-color .5s;
   overflow: hidden;
 `;
 
@@ -69,10 +79,20 @@ const DownSpan = styled.span<{ collapsed: boolean }>`
   top: 12px;
   left: 8px;
   z-index: 2;
+  border-radius: 4px;
   transform: rotate(0deg);
-  ${({ collapsed }) => (collapsed ? "transform: rotate(180deg);" : "")}
-  transition: transform 0.5s;
+  ${({ collapsed }) => collapsed && "transform: rotate(180deg);"}
+  transition: transform 0.5s, background-color .5s;
   cursor: pointer;
+  &:hover {
+    background-color: ${({ theme: { newDocHvBgColor } }) => newDocHvBgColor};
+    svg path {
+      fill: ${({ theme: { colorPrimary } }) => colorPrimary};
+    }
+  }
+  svg path {
+    transition: background-color 0.5s;
+  }
 `;
 
 const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
@@ -83,7 +103,7 @@ const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
-  ${({ collapsed }) => (collapsed ? "transform: translate(-267px, 0px);" : "")}
+  ${({ collapsed }) => collapsed && "transform: translate(-267px, 0px);"}
   transition: all 0.5s;
 `;
 
@@ -92,11 +112,10 @@ const FrameTitleSpan = styled.span<{ collapsed: boolean }>`
   padding: 0 24px 0 32px;
   flex-grow: 1;
   ${({ collapsed }) =>
-    collapsed
-      ? `
+    collapsed &&
+    `
   transform: rotate(-90deg);
-  flex-grow: 0;`
-      : ""}
+  flex-grow: 0;`}
   transition: all 0.5s;
   transform-origin: top right;
 `;
@@ -116,13 +135,12 @@ const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
   overflow-x: hidden;
   padding: 0px 8px;
   ${({ collapsed }) =>
-    collapsed
-      ? `
+    collapsed &&
+    `
   padding-top: 300px;
   opacity: 0;
   height: calc(100vh - 129px);
-  `
-      : ""}
+  `}
   scrollbar-width: thin;
   &::-webkit-scrollbar {
     width: 5px;
@@ -140,13 +158,25 @@ const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
 `;
 
 const NewGroupDiv = styled.div`
-  margin: 10px 0 0 17px;
+  margin: 11px 0 0 11px;
   padding: 2px 0.5px;
   width: 119px;
   flex-shrink: 0;
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
+  color: ${({ theme: { colorSecondary } }) => colorSecondary};
+  svg path {
+    fill: ${({ theme: { colorSecondary } }) => colorSecondary};
+    transition: fill 0.5s;
+  }
+  &:hover {
+    color: ${({ theme: { colorPrimary } }) => colorPrimary};
+    svg path {
+      fill: ${({ theme: { colorPrimary } }) => colorPrimary};
+    }
+  }
+  transition: color 0.5s;
 `;
 
 const NewGroupSpan = styled.span`

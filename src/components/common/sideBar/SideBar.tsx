@@ -22,46 +22,52 @@ import { SideBarProps } from "./index";
 
 const SideBar = ({
   currentPage,
-  isSideBarOpen,
+  isSideBarExtended,
   toggleSideBar,
   openMenuSlug,
   openAMenu,
-}: SideBarProps) => (
-  <Nav isSideBarOpen={isSideBarOpen}>
-    <AccountAndConfig isSideBarOpen={isSideBarOpen} />
+}: SideBarProps): JSX.Element => (
+  <Nav isSideBarExtended={isSideBarExtended}>
+    <AccountAndConfig isSideBarExtended={isSideBarExtended} />
     <SeparatorHr />
-    <LinksUl isSideBarOpen={isSideBarOpen}>
-      {menuLinks.map((menuLink: MenuLink) => (
-        <MenuSimpleLink
-          key={menuLink.slug}
-          {...menuLink}
-          isSideBarOpen={isSideBarOpen}
-        />
-      ))}
+    <LinksUl isSideBarExtended={isSideBarExtended}>
+      {menuLinks.map(
+        (menuLink: MenuLink): JSX.Element => (
+          <MenuSimpleLink
+            key={menuLink.slug}
+            {...menuLink}
+            isSideBarExtended={isSideBarExtended}
+          />
+        ),
+      )}
     </LinksUl>
     <SeparatorHr />
 
     <BoardsUl>
-      {boards.map(({ title, slug: boardSlug, links }: BoardMenu) => (
-        <MenuBoard
-          key={boardSlug}
-          title={title}
-          boardSlug={boardSlug}
-          isSideBarOpen={isSideBarOpen}
-          openMenuSlug={openMenuSlug}
-          openThisMenu={openAMenu(boardSlug)}
-        >
-          {links.map((menuLink: MenuLink) => (
-            <BoardLink
-              key={`${boardSlug}-${menuLink.slug}`}
-              {...menuLink}
-              currentPage={currentPage}
-              isSideBarOpen={isSideBarOpen}
-            />
-          ))}
-        </MenuBoard>
-      ))}
-      <NewSectionDiv isSideBarOpen={isSideBarOpen}>
+      {boards.map(
+        ({ title, slug: boardSlug, links }: BoardMenu): JSX.Element => (
+          <MenuBoard
+            key={boardSlug}
+            title={title}
+            boardSlug={boardSlug}
+            isSideBarExtended={isSideBarExtended}
+            openMenuSlug={openMenuSlug}
+            openThisMenu={openAMenu(boardSlug)}
+          >
+            {links.map(
+              (menuLink: MenuLink): JSX.Element => (
+                <BoardLink
+                  key={`${boardSlug}-${menuLink.slug}`}
+                  {...menuLink}
+                  currentPage={currentPage}
+                  isSideBarExtended={isSideBarExtended}
+                />
+              ),
+            )}
+          </MenuBoard>
+        ),
+      )}
+      <NewSectionDiv isSideBarExtended={isSideBarExtended}>
         <NewSectionIconSpan>
           <Create />
         </NewSectionIconSpan>
@@ -70,7 +76,7 @@ const SideBar = ({
     </BoardsUl>
 
     <TogglerDiv onClick={toggleSideBar}>
-      <TogglerIconDiv isSideBarOpen={isSideBarOpen}>
+      <TogglerIconDiv isSideBarExtended={isSideBarExtended}>
         <Image
           src={`/icons/select.svg`}
           alt="Toggle menu"

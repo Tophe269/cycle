@@ -1,10 +1,10 @@
 import { createContext, useState, ReactNode } from "react";
 
 const ToggleSideBarContext = createContext<{
-  isSideBarOpen: boolean;
+  isSideBarExtended: boolean;
   toggleSideBar: () => void;
 }>({
-  isSideBarOpen: true,
+  isSideBarExtended: true,
   toggleSideBar: () => {},
 });
 
@@ -13,15 +13,14 @@ const ToggleSideBarProvider = ({
 }: {
   children: ReactNode;
 }): JSX.Element => {
-  const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(true);
+  const [isSideBarExtended, setIsSideBarExtended] = useState<boolean>(true);
 
   return (
     <ToggleSideBarContext.Provider
       value={{
-        isSideBarOpen,
+        isSideBarExtended,
         toggleSideBar: () => {
-          console.log("toggle menu ", isSideBarOpen);
-          setIsSideBarOpen(bool => !bool);
+          setIsSideBarExtended(state => !state);
         },
       }}
     >

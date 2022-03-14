@@ -38,7 +38,7 @@ export const roadmapTechBoard: DocGroup[] = [
   {
     title: "In Roadmap",
     slug: "in-design",
-    icon: "🎨",
+    icon: "🚚",
     docs: [
       {
         id: "CYC-429",
