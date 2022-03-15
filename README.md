@@ -2,7 +2,23 @@ This project is based on [Next.js](https://nextjs.org/) bootstrapped with [`crea
 
 ## Getting Started
 
-First, run the development server:
+This project runs under nodeJs v16.14.0.
+It's configured with nvm, so you can use :
+
+```bash
+nvm install
+nvm use
+```
+
+Then set up the dependencies :
+
+```bash
+npm install
+# or
+yarn
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
