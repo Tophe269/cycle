@@ -60,6 +60,7 @@ const ConfigDiv = styled.div<{ isSideBarExtended: boolean }>`
   padding: 7.5px 10px 7.5px;
   `}
   transition: padding 0.5s;
+  cursor: pointer;
 `;
 
 const AccountDiv = styled.div<{ isSideBarExtended: boolean }>`
@@ -76,6 +77,7 @@ const AccountDiv = styled.div<{ isSideBarExtended: boolean }>`
   &:hover {
     background: ${({ theme: { hvBgLinkColor } }) => hvBgLinkColor};
   }
+  cursor: pointer;
 `;
 
 const ConfigLogoSpan = styled.span`
@@ -399,6 +401,7 @@ const NewSectionDiv = styled.div<{ isSideBarExtended: boolean }>`
   margin: 0;
   `}
   transition: margin 0.5s, opacity 0.5s, height 0.5s, color 0.5s;
+  cursor: pointer;
 `;
 
 const TogglerDiv = styled.div`

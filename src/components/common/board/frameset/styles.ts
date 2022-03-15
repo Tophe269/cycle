@@ -48,6 +48,7 @@ const NewDocDiv = styled.div`
       fill: ${({ theme: { colorPrimary } }) => colorPrimary};
     }
   }
+  cursor: pointer;
 `;
 
 const NewDocSpan = styled.span`
@@ -177,6 +178,7 @@ const NewGroupDiv = styled.div`
     }
   }
   transition: color 0.5s;
+  cursor: pointer;
 `;
 
 const NewGroupSpan = styled.span`

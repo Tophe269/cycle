@@ -48,6 +48,7 @@ const DocumentWrapperDiv = styled.div`
   &:hover ${CheckDiv}, &:hover ${MoreDiv} {
     opacity: 1;
   }
+  cursor: pointer;
 `;
 
 const TagsDiv = styled.div`
