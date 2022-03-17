@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   AccountAndConfigDiv,
   ConfigDiv,
@@ -15,9 +16,7 @@ type AccountAndConfigProps = {
   isSideBarExtended: boolean;
 };
 
-const AccountAndConfig = ({
-  isSideBarExtended,
-}: AccountAndConfigProps): JSX.Element => (
+const AccountAndConfig: FC<AccountAndConfigProps> = ({ isSideBarExtended }) => (
   <AccountAndConfigDiv isSideBarExtended={isSideBarExtended}>
     <ConfigDiv isSideBarExtended={isSideBarExtended}>
       <ConfigLogoSpan>

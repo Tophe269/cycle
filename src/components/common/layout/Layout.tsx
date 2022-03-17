@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "@/constants/theme";
 import Head from "next/head";
@@ -14,12 +15,7 @@ import {
 
 import { LayoutProps } from "./index";
 
-const Layout = ({
-  icon,
-  title,
-  boardSlug,
-  children,
-}: LayoutProps): JSX.Element => (
+const Layout: FC<LayoutProps> = ({ icon, title, boardSlug, children }) => (
   <ContainerDiv>
     <Head>
       <title>{title}</title>

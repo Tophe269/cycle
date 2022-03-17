@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Link from "next/link";
 import {
   LinksLi,
@@ -15,13 +16,13 @@ type MenuSimpleLinkProps = MenuLink & {
   isSideBarExtended: boolean;
 };
 
-const MenuSimpleLink = ({
+const MenuSimpleLink: FC<MenuSimpleLinkProps> = ({
   slug,
   text,
   icon,
   letters,
   isSideBarExtended,
-}: MenuSimpleLinkProps): JSX.Element => (
+}) => (
   <Link href={slug} passHref>
     <a>
       <LinksLi>

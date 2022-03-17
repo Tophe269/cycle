@@ -1,10 +1,10 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback, FC } from "react";
 
 import { Tag } from "@/types/board";
 
 import { TagDiv, TooltipDiv } from "./styles";
 
-const TagLabel = ({ text: tagText, color }: Tag): JSX.Element => {
+const TagLabel: FC<Tag> = ({ text: tagText, color }) => {
   const tagRef = useRef<HTMLDivElement>(null);
   const [coord, setCoord] = useState<{ top: number; left: number }>({
     top: 0,

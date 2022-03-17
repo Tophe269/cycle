@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, FC } from "react";
 
 import {
   BoardsLi,
@@ -18,14 +18,14 @@ type MenuBoardProps = {
   openThisMenu: () => void;
 };
 
-const MenuBoard = ({
+const MenuBoard:FC<MenuBoardProps> = ({
   boardSlug,
   title,
   isSideBarExtended,
   children,
   openMenuSlug,
   openThisMenu,
-}: MenuBoardProps): JSX.Element => (
+} ) => (
   <BoardsLi key={boardSlug}>
     <BoardsLiTitleDiv
       isSideBarExtended={isSideBarExtended}

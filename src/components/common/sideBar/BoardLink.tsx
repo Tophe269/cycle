@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Link from "next/link";
 import {
   BoardsLinksLi,
@@ -14,13 +15,13 @@ type BoardLinkProps = MenuLink & {
   isSideBarExtended: boolean;
 };
 
-const BoardLink = ({
+const BoardLink: FC<BoardLinkProps> = ({
   slug,
   text,
   icon,
   currentPage,
   isSideBarExtended,
-}: BoardLinkProps): JSX.Element => (
+}) => (
   <Link href={slug} passHref>
     <a>
       <BoardsLinksLi

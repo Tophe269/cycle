@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, FC } from "react";
 
 import {
   FrameDiv,
@@ -20,7 +20,7 @@ type FrameProps = {
   children: ReactNode;
 };
 
-const Frame = ({ titleIcon, title, children }: FrameProps): JSX.Element => {
+const Frame: FC<FrameProps> = ({ titleIcon, title, children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (

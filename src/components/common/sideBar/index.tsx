@@ -1,4 +1,4 @@
-import { useContext, useState, useCallback } from "react";
+import { useContext, useState, useCallback, FC } from "react";
 
 import ToggleSideBarContext from "@/contexts/ToggleSideBarContext";
 
@@ -15,7 +15,7 @@ export type SideBarProps = SideBarContainerProps & {
   openAMenu: (i: string) => () => void;
 };
 
-const SideBarContainer = (props: SideBarContainerProps): JSX.Element => {
+const SideBarContainer: FC<SideBarContainerProps> = props => {
   const { isSideBarExtended, toggleSideBar } = useContext(ToggleSideBarContext);
   const [openMenuSlug, setOpenMenuSlug] = useState<string>(boards[0].slug);
   const openAMenu = useCallback(

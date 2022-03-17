@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Document from "@/components/common/board/document/Document";
 import FrameSet from "@/components/common/board/frameset";
 import Frame from "@/components/common/board/frameset/Frame";
@@ -10,7 +11,7 @@ import New from "../../../public/icons/new.svg";
 import { DesignProps } from "./index";
 import { DocGroup, Doc } from "@/types/board";
 
-const Design = ({ board }: DesignProps): JSX.Element => (
+const Design: FC<DesignProps> = ({ board }) => (
   <FrameSet>
     {board.map(
       ({ slug, icon: titleIcon, title, docs }: DocGroup): JSX.Element => (

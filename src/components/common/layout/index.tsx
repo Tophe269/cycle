@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, FC } from "react";
 import Layout from "./Layout";
 import { boards } from "@/constants/menu";
 import { findTitleAndIcon } from "./helpers";
@@ -16,12 +16,16 @@ export type LayoutProps = {
   children: ReactNode;
 };
 
-const LayoutContainer = ({
+const LayoutContainer: FC<LayoutContainerProps> = ({
   category,
   board,
   ...props
-}: LayoutContainerProps): JSX.Element => {
-  const {slug:boardSlug, icon, text: title } = useMemo(
+}) => {
+  const {
+    slug: boardSlug,
+    icon,
+    text: title,
+  } = useMemo(
     () => findTitleAndIcon({ boards, category, board }),
     [category, board],
   );

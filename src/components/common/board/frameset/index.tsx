@@ -1,4 +1,4 @@
-import { useContext, ReactNode } from "react";
+import { useContext, ReactNode, FC } from "react";
 
 import ToggleSideBarContext from "@/contexts/ToggleSideBarContext";
 
@@ -10,7 +10,7 @@ export type FramesetProps = FramesetContainerProps & {
   isSideBarExtended: boolean;
 };
 
-const FramesetContainer = (props: FramesetContainerProps): JSX.Element => {
+const FramesetContainer: FC<FramesetContainerProps> = props => {
   const { isSideBarExtended } = useContext(ToggleSideBarContext);
 
   return <Frameset {...props} isSideBarExtended={isSideBarExtended} />;

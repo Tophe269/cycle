@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Nav,
   SeparatorHr,
@@ -20,13 +21,13 @@ import { menuLinks, boards } from "@/constants/menu";
 import { MenuLink, BoardMenu } from "@/types/menu";
 import { SideBarProps } from "./index";
 
-const SideBar = ({
+const SideBar: FC<SideBarProps> = ({
   currentPage,
   isSideBarExtended,
   toggleSideBar,
   openMenuSlug,
   openAMenu,
-}: SideBarProps): JSX.Element => (
+}) => (
   <Nav isSideBarExtended={isSideBarExtended}>
     <AccountAndConfig isSideBarExtended={isSideBarExtended} />
     <SeparatorHr />

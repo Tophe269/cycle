@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Document from "@/components/common/board/document/Document";
 import FrameSet from "@/components/common/board/frameset";
 import Frame from "@/components/common/board/frameset/Frame";
@@ -10,7 +11,7 @@ import New from "../../../public/icons/new.svg";
 import { RoadmapTechProps } from "./index";
 import { DocGroup, Doc } from "@/types/board";
 
-const RoadmapTech = ({ board }: RoadmapTechProps): JSX.Element => (
+const RoadmapTech: FC<RoadmapTechProps> = ({ board }) => (
   <FrameSet>
     {board.map(
       ({ slug, icon: titleIcon, title, docs }: DocGroup): JSX.Element => (
