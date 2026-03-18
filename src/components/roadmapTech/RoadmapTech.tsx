@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import Document from "@/components/common/board/document/Document";
 import FrameSet from "@/components/common/board/frameset";
 import Frame from "@/components/common/board/frameset/Frame";
@@ -14,10 +14,10 @@ import { DocGroup, Doc } from "@/types/board";
 const RoadmapTech: FC<RoadmapTechProps> = ({ board }) => (
   <FrameSet>
     {board.map(
-      ({ slug, icon: titleIcon, title, docs }: DocGroup): JSX.Element => (
+      ({ slug, icon: titleIcon, title, docs }: DocGroup): ReactElement => (
         <Frame key={slug} titleIcon={titleIcon} title={title}>
           {docs.map(
-            ({ id, text, tags, icon }: Doc): JSX.Element => (
+            ({ id, text, tags, icon }: Doc): ReactElement => (
               <Document key={id} id={id} text={text} tags={tags} icon={icon} />
             ),
           )}

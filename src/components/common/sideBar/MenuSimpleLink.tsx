@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import Link from "next/link";
 import {
   LinksLi,
@@ -33,7 +33,7 @@ const MenuSimpleLink: FC<MenuSimpleLinkProps> = ({
           {text}
         </LinksLiTextSpan>
         {letters?.map(
-          (letter: string): JSX.Element => (
+          (letter: string): ReactElement => (
             <LinksLiLetterSpan key={`Letter-${letter}`}>
               {Letters[letter]}
             </LinksLiLetterSpan>
