@@ -1,4 +1,6 @@
-export type Tag = { text: string; color?: string };
+export type TagColor = "green" | "blue" | "lightBlue" | "pink" | "yellow";
+
+export type Tag = { text: string; color?: TagColor };
 
 export type Doc = {
   id: string;

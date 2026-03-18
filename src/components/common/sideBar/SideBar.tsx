@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import {
   Nav,
   SeparatorHr,
@@ -33,7 +33,7 @@ const SideBar: FC<SideBarProps> = ({
     <SeparatorHr />
     <LinksUl isSideBarExtended={isSideBarExtended}>
       {menuLinks.map(
-        (menuLink: MenuLink): JSX.Element => (
+        (menuLink: MenuLink): ReactElement => (
           <MenuSimpleLink
             key={menuLink.slug}
             {...menuLink}
@@ -46,7 +46,7 @@ const SideBar: FC<SideBarProps> = ({
 
     <BoardsUl>
       {boards.map(
-        ({ title, slug: boardSlug, links }: BoardMenu): JSX.Element => (
+        ({ title, slug: boardSlug, links }: BoardMenu): ReactElement => (
           <MenuBoard
             key={boardSlug}
             title={title}
@@ -56,7 +56,7 @@ const SideBar: FC<SideBarProps> = ({
             openThisMenu={openAMenu(boardSlug)}
           >
             {links.map(
-              (menuLink: MenuLink): JSX.Element => (
+              (menuLink: MenuLink): ReactElement => (
                 <BoardLink
                   key={`${boardSlug}-${menuLink.slug}`}
                   {...menuLink}

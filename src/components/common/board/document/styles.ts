@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TagColor } from "@/types/board";
 
 const CheckDiv = styled.div`
   display: flex;
@@ -73,7 +74,7 @@ const TooltipDiv = styled.div<{ top: number; left: number }>`
   z-index: 2;
 `;
 
-const TagDiv = styled.div<{ color?: string }>`
+const TagDiv = styled.div<{ color?: TagColor }>`
   flex-grow: 0;
   flex-shrink: 1;
   padding: 2px 4px;
@@ -86,13 +87,17 @@ const TagDiv = styled.div<{ color?: string }>`
   font-size: 12px;
   line-height: 20px;
   border-radius: 4px;
-  ${({ color, theme }) =>
-    color
-      ? `
-      color: ${theme.tags[color].color};
-      background-color: ${theme.tags[color].bgColor};
-      `
-      : "border: 1px solid #E6E6E6;"}
+  ${({ color, theme }) => {
+    const palette = color ? theme.tags?.[color] : undefined;
+    if (palette) {
+      return `
+      color: ${palette.color};
+      background-color: ${palette.bgColor};
+      `;
+    }
+
+    return "border: 1px solid #E6E6E6;";
+  }}
   &:hover + ${TooltipDiv} {
     display: block;
   }
