@@ -1,3 +1,5 @@
+"use client";
+
 import Design from "./Design";
 
 import { designBoard } from "@/constants/design-data";

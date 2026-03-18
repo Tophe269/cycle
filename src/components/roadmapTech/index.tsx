@@ -1,3 +1,5 @@
+"use client";
+
 import RoadmapTech from "./RoadmapTech";
 
 import { roadmapTechBoard } from "@/constants/roadmap-tech-data";
