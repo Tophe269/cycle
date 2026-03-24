@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback, FC } from "react";
+import { useRef, useEffect, useState, FC } from "react";
 
 import { Tag } from "@/types/board";
 
@@ -12,14 +12,14 @@ const TagLabel: FC<Tag> = ({ text: tagText, color }) => {
   });
   const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
 
-  const calculateTooltipPosition = useCallback(() => {
+  const calculateTooltipPosition = () => {
     const { top, left, width } = tagRef?.current?.getBoundingClientRect() || {
       top: 0,
       left: 0,
       width: 0,
     };
     setCoord({ top, left: left + width / 2 });
-  }, [tagRef]);
+  };
 
   useEffect(() => {
     if (tagRef?.current) {

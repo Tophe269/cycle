@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, FC } from "react";
+import { ReactNode, FC } from "react";
 import Layout from "./Layout";
 import { boards } from "@/constants/menu";
 import { findTitleAndIcon } from "./helpers";
@@ -25,10 +25,7 @@ const LayoutContainer: FC<LayoutContainerProps> = ({
     slug: boardSlug,
     icon,
     text: title,
-  } = useMemo(
-    () => findTitleAndIcon({ boards, category, board }),
-    [category, board],
-  );
+  } = findTitleAndIcon({ boards, category, board });
   return <Layout {...props} icon={icon} title={title} boardSlug={boardSlug} />;
 };
 
