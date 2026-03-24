@@ -24,8 +24,8 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const currentPage = (pathname ?? "").replace(/^\/+/, "").split("/")[0] || "";
   const { icon, text: title } = findTitleAndIcon({
     boards,
-    category: "shared",
-    board: currentPage.slice(1),
+    category: "starred",
+    board: currentPage,
   });
 
   return (
