@@ -21,11 +21,17 @@ import { menuLinks, boards } from "@/constants/menu";
 import { MenuLink, BoardMenu } from "@/types/menu";
 import { useSideBar } from "./sideBarHook";
 
-type SideBarContainerProps = { currentPage: string };
+type SideBarContainerProps = {
+  currentCategory: string;
+  currentPage: string;
+};
 
-const SideBar: FC<SideBarContainerProps> = ({ currentPage }) => {
+const SideBar: FC<SideBarContainerProps> = ({
+  currentCategory,
+  currentPage,
+}) => {
   const { isSideBarExtended, toggleSideBar, openMenuSlug, openAMenu } =
-    useSideBar({ currentPage });
+    useSideBar({ currentCategory, currentPage });
 
   return (
     <Nav isSideBarExtended={isSideBarExtended}>
@@ -60,6 +66,8 @@ const SideBar: FC<SideBarContainerProps> = ({ currentPage }) => {
                   <BoardLink
                     key={`${boardSlug}-${menuLink.slug}`}
                     {...menuLink}
+                    categorySlug={boardSlug}
+                    currentCategory={currentCategory}
                     currentPage={currentPage}
                     isSideBarExtended={isSideBarExtended}
                   />

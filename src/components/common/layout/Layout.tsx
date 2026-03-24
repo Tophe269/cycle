@@ -21,17 +21,21 @@ type LayoutProps = PropsWithChildren;
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   const pathname = usePathname();
-  const currentPage = (pathname ?? "").replace(/^\/+/, "").split("/")[0] || "";
+  const [firstSegment = "", secondSegment = ""] = (pathname ?? "")
+    .replace(/^\/+/, "")
+    .split("/");
+  const currentCategory = secondSegment ? firstSegment : "starred";
+  const currentPage = secondSegment || firstSegment;
   const { icon, text: title } = findTitleAndIcon({
     boards,
-    category: "starred",
+    category: currentCategory,
     board: currentPage,
   });
 
   return (
     <ContainerDiv>
       <ThemeProvider theme={theme.nav}>
-        <SideBar currentPage={currentPage} />
+        <SideBar currentCategory={currentCategory} currentPage={currentPage} />
       </ThemeProvider>
       <ThemeProvider theme={theme.content}>
         <ContentDiv>
