@@ -1,12 +1,10 @@
-import { ReactNode, FC } from "react";
-import Layout from "./Layout";
+import { ReactNode } from "react";
 import { boards } from "@/constants/menu";
 import { findTitleAndIcon } from "./helpers";
 
-type LayoutContainerProps = {
+type UseLayoutParams = {
   category: string;
   board: string;
-  children: ReactNode;
 };
 
 export type LayoutProps = {
@@ -16,17 +14,16 @@ export type LayoutProps = {
   children: ReactNode;
 };
 
-const LayoutContainer: FC<LayoutContainerProps> = ({
+type UseLayoutResult = Omit<LayoutProps, "children">;
+
+export const useLayout = ({
   category,
   board,
-  ...props
-}) => {
+}: UseLayoutParams): UseLayoutResult => {
   const {
     slug: boardSlug,
     icon,
     text: title,
   } = findTitleAndIcon({ boards, category, board });
-  return <Layout {...props} icon={icon} title={title} boardSlug={boardSlug} />;
+  return { boardSlug, icon, title };
 };
-
-export default LayoutContainer;

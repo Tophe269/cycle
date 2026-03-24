@@ -19,74 +19,75 @@ import Create from "../../../../public/icons/create.svg";
 import { menuLinks, boards } from "@/constants/menu";
 
 import { MenuLink, BoardMenu } from "@/types/menu";
-import { SideBarProps } from "./index";
+import { useSideBar } from "./sideBarHook";
 
-const SideBar: FC<SideBarProps> = ({
-  currentPage,
-  isSideBarExtended,
-  toggleSideBar,
-  openMenuSlug,
-  openAMenu,
-}) => (
-  <Nav isSideBarExtended={isSideBarExtended}>
-    <AccountAndConfig isSideBarExtended={isSideBarExtended} />
-    <SeparatorHr />
-    <LinksUl isSideBarExtended={isSideBarExtended}>
-      {menuLinks.map(
-        (menuLink: MenuLink): ReactElement => (
-          <MenuSimpleLink
-            key={menuLink.slug}
-            {...menuLink}
-            isSideBarExtended={isSideBarExtended}
+type SideBarContainerProps = { currentPage: string };
+
+const SideBar: FC<SideBarContainerProps> = ({ currentPage }) => {
+  const { isSideBarExtended, toggleSideBar, openMenuSlug, openAMenu } =
+    useSideBar({ currentPage });
+
+  return (
+    <Nav isSideBarExtended={isSideBarExtended}>
+      <AccountAndConfig isSideBarExtended={isSideBarExtended} />
+      <SeparatorHr />
+      <LinksUl isSideBarExtended={isSideBarExtended}>
+        {menuLinks.map(
+          (menuLink: MenuLink): ReactElement => (
+            <MenuSimpleLink
+              key={menuLink.slug}
+              {...menuLink}
+              isSideBarExtended={isSideBarExtended}
+            />
+          ),
+        )}
+      </LinksUl>
+      <SeparatorHr />
+
+      <BoardsUl>
+        {boards.map(
+          ({ title, slug: boardSlug, links }: BoardMenu): ReactElement => (
+            <MenuBoard
+              key={boardSlug}
+              title={title}
+              boardSlug={boardSlug}
+              isSideBarExtended={isSideBarExtended}
+              openMenuSlug={openMenuSlug}
+              openThisMenu={openAMenu(boardSlug)}
+            >
+              {links.map(
+                (menuLink: MenuLink): ReactElement => (
+                  <BoardLink
+                    key={`${boardSlug}-${menuLink.slug}`}
+                    {...menuLink}
+                    currentPage={currentPage}
+                    isSideBarExtended={isSideBarExtended}
+                  />
+                ),
+              )}
+            </MenuBoard>
+          ),
+        )}
+        <NewSectionDiv isSideBarExtended={isSideBarExtended}>
+          <NewSectionIconSpan>
+            <Create />
+          </NewSectionIconSpan>
+          New section
+        </NewSectionDiv>
+      </BoardsUl>
+
+      <TogglerDiv onClick={toggleSideBar}>
+        <TogglerIconDiv isSideBarExtended={isSideBarExtended}>
+          <Image
+            src={`/icons/select.svg`}
+            alt="Toggle menu"
+            width={6}
+            height={10}
           />
-        ),
-      )}
-    </LinksUl>
-    <SeparatorHr />
-
-    <BoardsUl>
-      {boards.map(
-        ({ title, slug: boardSlug, links }: BoardMenu): ReactElement => (
-          <MenuBoard
-            key={boardSlug}
-            title={title}
-            boardSlug={boardSlug}
-            isSideBarExtended={isSideBarExtended}
-            openMenuSlug={openMenuSlug}
-            openThisMenu={openAMenu(boardSlug)}
-          >
-            {links.map(
-              (menuLink: MenuLink): ReactElement => (
-                <BoardLink
-                  key={`${boardSlug}-${menuLink.slug}`}
-                  {...menuLink}
-                  currentPage={currentPage}
-                  isSideBarExtended={isSideBarExtended}
-                />
-              ),
-            )}
-          </MenuBoard>
-        ),
-      )}
-      <NewSectionDiv isSideBarExtended={isSideBarExtended}>
-        <NewSectionIconSpan>
-          <Create />
-        </NewSectionIconSpan>
-        New section
-      </NewSectionDiv>
-    </BoardsUl>
-
-    <TogglerDiv onClick={toggleSideBar}>
-      <TogglerIconDiv isSideBarExtended={isSideBarExtended}>
-        <Image
-          src={`/icons/select.svg`}
-          alt="Toggle menu"
-          width={6}
-          height={10}
-        />
-      </TogglerIconDiv>
-    </TogglerDiv>
-  </Nav>
-);
+        </TogglerIconDiv>
+      </TogglerDiv>
+    </Nav>
+  );
+};
 
 export default SideBar;

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import Layout from "@/components/common/layout/Layout";
 import { findTitleAndIcon } from "@/components/common/layout/helpers";
-import Design from "@/components/design";
+import Design from "@/components/design/Design";
 import { boards } from "@/constants/menu";
 
 const boardInfo = findTitleAndIcon({

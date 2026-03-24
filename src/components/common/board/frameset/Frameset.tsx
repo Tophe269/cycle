@@ -1,11 +1,16 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 import { FrameSetMain } from "./styles";
+import { useFrameset } from "./framesetHook";
 
-import { FramesetProps } from "./index";
+type FramesetProps = { children: ReactNode };
 
-const FrameSet: FC<FramesetProps> = ({ children, isSideBarExtended }) => (
-  <FrameSetMain isSideBarExtended={isSideBarExtended}>{children}</FrameSetMain>
-);
+const FrameSet: FC<FramesetProps> = ({ children }) => {
+  const { isSideBarExtended } = useFrameset();
+
+  return (
+    <FrameSetMain isSideBarExtended={isSideBarExtended}>{children}</FrameSetMain>
+  );
+};
 
 export default FrameSet;

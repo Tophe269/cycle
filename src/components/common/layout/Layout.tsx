@@ -4,7 +4,7 @@ import { FC } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "@/constants/theme";
 
-import SideBar from "../sideBar";
+import SideBar from "../sideBar/SideBar";
 
 import {
   ContainerDiv,
@@ -14,7 +14,7 @@ import {
   ContentDiv,
 } from "./styles";
 
-import { LayoutProps } from "./index";
+import { LayoutProps } from "./layoutHook";
 
 const Layout: FC<LayoutProps> = ({ icon, title, boardSlug, children }) => (
   <ContainerDiv>
