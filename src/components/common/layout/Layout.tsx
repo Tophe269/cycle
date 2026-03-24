@@ -25,7 +25,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const { icon, text: title } = findTitleAndIcon({
     boards,
     category: "shared",
-    board: currentPage,
+    board: currentPage.slice(1),
   });
 
   return (
