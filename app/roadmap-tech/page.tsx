@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import Layout from "@/components/common/layout/Layout";
 import { findTitleAndIcon } from "@/components/common/layout/helpers";
 import { boards } from "@/constants/menu";
-import RoadmapTech from "@/components/roadmapTech/RoadmapTech";
+
+import RoadmapTech from "./RoadmapTech";
 
 const boardInfo = findTitleAndIcon({
   boards,

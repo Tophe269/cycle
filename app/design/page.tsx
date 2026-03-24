@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 import Layout from "@/components/common/layout/Layout";
 import { findTitleAndIcon } from "@/components/common/layout/helpers";
-import Design from "@/components/design/Design";
 import { boards } from "@/constants/menu";
+
+import Design from "./Design";
 
 const boardInfo = findTitleAndIcon({
   boards,

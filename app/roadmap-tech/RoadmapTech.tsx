@@ -8,13 +8,13 @@ import {
   NewGroupDiv,
   NewGroupSpan,
 } from "@/components/common/board/frameset/styles";
-import New from "../../../public/icons/new.svg";
+import New from "../../public/icons/new.svg";
 
-import { useDesignBoard } from "./designBoardHook";
+import { useRoadmapTechBoard } from "./roadmapTechBoardHook";
 import { DocGroup, Doc } from "@/types/board";
 
-const Design: FC = () => {
-  const board = useDesignBoard();
+const RoadmapTech: FC = () => {
+  const board = useRoadmapTechBoard();
 
   return (
     <FrameSet>
@@ -37,4 +37,4 @@ const Design: FC = () => {
   );
 };
 
-export default Design;
+export default RoadmapTech;
