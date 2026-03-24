@@ -1,4 +1,4 @@
-import { ReactNode, FC } from "react";
+import { FC, PropsWithChildren } from "react";
 
 import {
   BoardsLi,
@@ -9,14 +9,13 @@ import {
 
 import Down from "../../../../public/icons/down-w.svg";
 
-type MenuBoardProps = {
+type MenuBoardProps = PropsWithChildren<{
   boardSlug: string;
   title: string;
   isSideBarExtended: boolean;
-  children: ReactNode;
   openMenuSlug: string;
   openThisMenu: () => void;
-};
+}>;
 
 const MenuBoard:FC<MenuBoardProps> = ({
   boardSlug,

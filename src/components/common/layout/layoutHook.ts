@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { boards } from "@/constants/menu";
 import { findTitleAndIcon } from "./helpers";
 
@@ -7,14 +6,11 @@ type UseLayoutParams = {
   board: string;
 };
 
-export type LayoutProps = {
+type UseLayoutResult = {
   icon: string;
   title: string;
   boardSlug: string;
-  children: ReactNode;
 };
-
-type UseLayoutResult = Omit<LayoutProps, "children">;
 
 export const useLayout = ({
   category,

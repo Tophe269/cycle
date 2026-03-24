@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import Layout from "@/components/common/layout/Layout";
 import { findTitleAndIcon } from "@/components/common/layout/helpers";
 import { boards } from "@/constants/menu";
 
@@ -18,9 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function RoadmapTechPage() {
-  return (
-    <Layout icon={boardInfo.icon} title={boardInfo.text} boardSlug={boardInfo.slug}>
-      <RoadmapTech />
-    </Layout>
-  );
+  return <RoadmapTech />;
 }

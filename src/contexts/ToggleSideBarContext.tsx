@@ -1,5 +1,4 @@
-import { FC } from "react";
-import { createContext, useState, ReactNode } from "react";
+import { FC, createContext, useState, PropsWithChildren } from "react";
 
 const ToggleSideBarContext = createContext<{
   isSideBarExtended: boolean;
@@ -9,9 +8,7 @@ const ToggleSideBarContext = createContext<{
   toggleSideBar: () => {},
 });
 
-const ToggleSideBarProvider: FC<{
-  children: ReactNode;
-}> = ({ children }) => {
+const ToggleSideBarProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isSideBarExtended, setIsSideBarExtended] = useState<boolean>(true);
 
   return (

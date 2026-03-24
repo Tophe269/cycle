@@ -1,4 +1,4 @@
-import { ReactNode, useState, FC } from "react";
+import { FC, PropsWithChildren, useState } from "react";
 
 import {
   FrameDiv,
@@ -14,11 +14,10 @@ import {
 import Down from "../../../../../public/icons/down.svg";
 import New from "../../../../../public/icons/new.svg";
 
-type FrameProps = {
+type FrameProps = PropsWithChildren<{
   titleIcon: string;
   title: string;
-  children: ReactNode;
-};
+}>;
 
 const Frame: FC<FrameProps> = ({ titleIcon, title, children }) => {
   const [collapsed, setCollapsed] = useState(false);
