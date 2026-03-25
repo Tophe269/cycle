@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { findTitleAndIcon } from "@/components/common/layout/helpers";
 import { boards } from "@/constants/menu";
 
-import Design from "../../design/Design";
-import RoadmapTech from "../../roadmap-tech/RoadmapTech";
+import BoardContent from "./BoardContent";
+import { getBoardData, isSupportedBoard } from "./helpers";
 
 type BoardPageProps = {
   params: Promise<{
@@ -14,18 +14,13 @@ type BoardPageProps = {
   }>;
 };
 
-const boardPages = {
-  design: Design,
-  "roadmap-tech": RoadmapTech,
-} as const;
-
 export async function generateMetadata({
   params,
 }: BoardPageProps): Promise<Metadata> {
   const { category, board } = await params;
   const boardInfo = findTitleAndIcon({ boards, category, board });
 
-  if (!boardInfo.slug || !(board in boardPages)) {
+  if (!boardInfo.slug || !isSupportedBoard(board)) {
     return {
       title: "Cycle",
       description: "Cycle boards",
@@ -41,11 +36,12 @@ export async function generateMetadata({
 export default async function BoardPage({ params }: BoardPageProps) {
   const { category, board } = await params;
   const boardInfo = findTitleAndIcon({ boards, category, board });
-  const BoardComponent = boardPages[board as keyof typeof boardPages];
 
-  if (!boardInfo.slug || !BoardComponent) {
+  if (!boardInfo.slug || !isSupportedBoard(board)) {
     notFound();
   }
 
-  return <BoardComponent />;
+  const data = await getBoardData(category, board);
+
+  return <BoardContent data={data} />;
 }
