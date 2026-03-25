@@ -1,5 +1,5 @@
-import { designBoard } from "@/constants/design-data";
-import { roadmapTechBoard } from "@/constants/roadmap-tech-data";
+import { designBoard } from "app/_constants/design-data";
+import { roadmapTechBoard } from "app/_constants/roadmap-tech-data";
 
 type RouteContext = {
   params: Promise<{

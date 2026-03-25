@@ -1,6 +1,6 @@
 import { GET } from "../route";
-import { designBoard } from "@/constants/design-data";
-import { roadmapTechBoard } from "@/constants/roadmap-tech-data";
+import { designBoard } from "app/_constants/design-data";
+import { roadmapTechBoard } from "app/_constants/roadmap-tech-data";
 
 describe("api /[category]/[board]", () => {
   it("should return roadmap-tech data when board is roadmap-tech", async () => {

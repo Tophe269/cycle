@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { findTitleAndIcon } from "@/components/common/layout/helpers";
-import { boards } from "@/constants/menu";
+import { findTitleAndIcon } from "app/_layout/helpers";
+import { boards } from "app/_constants/menu";
 
-import BoardContent from "./BoardContent";
+import BoardContent from "./_components/BoardContent";
 import { getBoardData, isSupportedBoard } from "./helpers";
 
 type BoardPageProps = {

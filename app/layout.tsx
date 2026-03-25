@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 
-import Providers from "./providers";
-import Layout from "@/components/common/layout/Layout";
+import Providers from "./_layout/providers";
+import Layout from "app/_layout/Layout";
 
 const inter = Inter({
   subsets: ["latin"],

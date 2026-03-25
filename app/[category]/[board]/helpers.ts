@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { DocGroup } from "@/types/board";
+import { DocGroup } from "app/_types/board";
 
 export const supportedBoards = ["design", "roadmap-tech"] as const;
 
@@ -28,10 +28,12 @@ export const getBoardData = async (
     throw new Error("Missing host header for board API request");
   }
 
-  const response = await fetch(`${protocol}://${host}/api/${category}/${board}`,
+  const response = await fetch(
+    `${protocol}://${host}/api/${category}/${board}`,
     {
       cache: "no-store",
-    });
+    },
+  );
 
   if (!response.ok) {
     throw new Error(`Unable to load board ${category}/${board}`);
