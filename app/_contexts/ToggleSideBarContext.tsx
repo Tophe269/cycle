@@ -11,13 +11,15 @@ const ToggleSideBarContext = createContext<{
 const ToggleSideBarProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isSideBarExtended, setIsSideBarExtended] = useState<boolean>(true);
 
+  const toggleSideBar = () => {
+    setIsSideBarExtended(state => !state);
+  };
+
   return (
     <ToggleSideBarContext.Provider
       value={{
         isSideBarExtended,
-        toggleSideBar: () => {
-          setIsSideBarExtended(state => !state);
-        },
+        toggleSideBar,
       }}
     >
       {children}

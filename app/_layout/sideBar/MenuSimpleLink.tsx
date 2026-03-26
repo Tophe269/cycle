@@ -22,26 +22,28 @@ const MenuSimpleLink: FC<MenuSimpleLinkProps> = ({
   icon,
   letters,
   isSideBarExtended,
-}) => (
-  <Link href={slug} passHref>
-    <a>
+}) => {
+  const IconComponent = Icons[icon];
+  return (
+    <Link href={slug}>
       <LinksLi>
         <LinksLiIconSpan $isSideBarExtended={isSideBarExtended}>
-          {Icons[icon]}
+          <IconComponent />
         </LinksLiIconSpan>
         <LinksLiTextSpan $isSideBarExtended={isSideBarExtended}>
           {text}
         </LinksLiTextSpan>
-        {letters?.map(
-          (letter: string): ReactElement => (
+        {letters?.map((letter: string): ReactElement => {
+          const LetterComponent = Letters[letter];
+          return (
             <LinksLiLetterSpan key={`Letter-${letter}`}>
-              {Letters[letter]}
+              <LetterComponent />
             </LinksLiLetterSpan>
-          ),
-        )}
+          );
+        })}
       </LinksLi>
-    </a>
-  </Link>
-);
+    </Link>
+  );
+};
 
 export default MenuSimpleLink;

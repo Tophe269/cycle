@@ -25,7 +25,7 @@ const MenuBoard: FC<MenuBoardProps> = ({
   openMenuSlug,
   openThisMenu,
 }) => (
-  <BoardsLi key={boardSlug}>
+  <BoardsLi>
     <BoardsLiTitleDiv
       $isSideBarExtended={isSideBarExtended}
       onClick={openThisMenu}

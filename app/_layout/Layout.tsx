@@ -4,10 +4,8 @@ import { FC, PropsWithChildren } from "react";
 import { usePathname } from "next/navigation";
 import { ThemeProvider } from "styled-components";
 import theme from "app/_constants/theme";
-import { boards } from "app/_constants/menu";
 
 import SideBar from "./sideBar/SideBar";
-import { findTitleAndIcon } from "./helpers";
 
 import { ContainerDiv } from "./styles";
 
