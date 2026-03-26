@@ -1,0 +1,8 @@
+echo "▶ Type check..."
+npx tsc --noEmit
+
+echo "▶ Lint..."
+npx eslint .
+
+echo "▶ Prettier check..."
+npx prettier --check .
