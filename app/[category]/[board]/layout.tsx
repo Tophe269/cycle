@@ -3,13 +3,9 @@ import { boards } from "app/_constants/menu";
 import { findTitleAndIcon } from "app/_layout/helpers";
 
 import BoardLayoutClient from "./layoutClient";
+import { BoardRouteProps } from "./types";
 
-type BoardLayoutProps = PropsWithChildren<{
-  params: Promise<{
-    category: string;
-    board: string;
-  }>;
-}>;
+type BoardLayoutProps = PropsWithChildren<BoardRouteProps>;
 
 export default async function BoardLayout({
   params,

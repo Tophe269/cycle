@@ -6,13 +6,9 @@ import { boards } from "app/_constants/menu";
 
 import BoardContent from "./_components/BoardContent";
 import { getBoardData, isSupportedBoard } from "./helpers";
+import { BoardRouteProps } from "./types";
 
-type BoardPageProps = {
-  params: Promise<{
-    category: string;
-    board: string;
-  }>;
-};
+type BoardPageProps = BoardRouteProps;
 
 export async function generateMetadata({
   params,
