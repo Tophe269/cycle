@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { getBoardData, isSupportedBoard } from "../helpers";
+import { getBoardData, isSupportedBoard } from "app/[category]/[board]/helpers";
 
 jest.mock("next/headers", () => ({
   headers: jest.fn(),

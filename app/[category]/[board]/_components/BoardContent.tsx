@@ -6,7 +6,7 @@ import FrameSet from "./frameset/Frameset";
 import { NewGroupDiv, NewGroupSpan } from "./frameset/styles";
 import { Doc, DocGroup } from "app/_types/board";
 
-import New from "../../../../public/icons/new.svg";
+import New from "app/_icons/New";
 
 type BoardContentProps = {
   data: DocGroup[];

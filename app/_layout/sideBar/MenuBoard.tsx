@@ -7,7 +7,7 @@ import {
   BoardsLinksUl,
 } from "./styles";
 
-import Down from "../../../public/icons/down-w.svg";
+import Down from "app/_icons/DownWhite";
 
 type MenuBoardProps = PropsWithChildren<{
   boardSlug: string;

@@ -6,7 +6,7 @@ import {
   BoardsLinksTextSpan,
   BoardsLinksMoreSpan,
 } from "./styles";
-import Image from "next/image";
+import MoreWhite from "app/_icons/MoreWhite";
 
 import { MenuLink } from "app/_types/menu";
 
@@ -38,12 +38,7 @@ const BoardLink: FC<BoardLinkProps> = ({
         {text}
       </BoardsLinksTextSpan>
       <BoardsLinksMoreSpan>
-        <Image
-          src={`/icons/more-w.svg`}
-          alt="Configure"
-          width={10.5}
-          height={2.63}
-        />
+        <MoreWhite />
       </BoardsLinksMoreSpan>
     </BoardsLinksLi>
   </Link>

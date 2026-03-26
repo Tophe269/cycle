@@ -1,4 +1,4 @@
-import { GET } from "../route";
+import { GET } from "app/api/[category]/[board]/route";
 import { designBoard } from "app/_constants/design-data";
 import { roadmapTechBoard } from "app/_constants/roadmap-tech-data";
 

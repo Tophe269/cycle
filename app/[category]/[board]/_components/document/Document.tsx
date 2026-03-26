@@ -3,7 +3,8 @@ import { FC } from "react";
 import { Doc } from "app/_types/board";
 
 import { DocumentWrapperDiv, TagsDiv, CheckDiv, MoreDiv } from "./styles";
-import Image from "next/image";
+import Check from "app/_icons/Check";
+import More from "app/_icons/More";
 import TagLabel from "./TagLabel";
 
 const Document: FC<Doc> = ({ id, text, tags, icon }) => (
@@ -17,10 +18,10 @@ const Document: FC<Doc> = ({ id, text, tags, icon }) => (
       ))}
     </TagsDiv>
     <CheckDiv>
-      <Image src={`/icons/check.svg`} alt="check" width={8} height={7} />
+      <Check />
     </CheckDiv>
     <MoreDiv>
-      <Image src={`/icons/more.svg`} alt="more" layout="fill" />
+      <More />
     </MoreDiv>
   </DocumentWrapperDiv>
 );
