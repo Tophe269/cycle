@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const Nav = styled.nav<{ isSideBarExtended: boolean }>`
+const Nav = styled.nav<{ $isSideBarExtended: boolean }>`
   color: ${({ theme: { color } }) => color};
   background-color: ${({ theme: { bgColor } }) => bgColor};
   height: 100vh;
-  width: ${({ isSideBarExtended }) => (isSideBarExtended ? "240px" : "64px")};
+  width: ${({ $isSideBarExtended }) => ($isSideBarExtended ? "240px" : "64px")};
   position: relative;
   transition: width 0.8s;
 `;
@@ -20,7 +20,7 @@ const SeparatorHr = styled.hr`
   opacity: 0.2;
 `;
 
-const AccountAndConfigDiv = styled.div<{ isSideBarExtended: boolean }>`
+const AccountAndConfigDiv = styled.div<{ $isSideBarExtended: boolean }>`
   display: flex;
   flex: none;
   flex-grow: 0;
@@ -28,23 +28,21 @@ const AccountAndConfigDiv = styled.div<{ isSideBarExtended: boolean }>`
   flex-wrap: wrap;
   padding: 16px 16px 17px;
   overflow: hidden;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   padding: 17px 12px 11.5px;
   `}
   transition: padding 0.5s;
 `;
 
-const ConfigDiv = styled.div<{ isSideBarExtended: boolean }>`
+const ConfigDiv = styled.div<{ $isSideBarExtended: boolean }>`
   display: flex;
   max-width: 100%;
   padding: 7.5px 8px 7.5px;
   border-radius: 4px;
   &:hover {
     background: ${({ theme: { hvBgLinkColor } }) => hvBgLinkColor};
-  }
-  &:hover {
     svg path:last-child {
       transform: rotate(360deg);
     }
@@ -54,8 +52,8 @@ const ConfigDiv = styled.div<{ isSideBarExtended: boolean }>`
     transition: transform 0.5s;
     transform-origin: center;
   }
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   padding: 7.5px 10px 7.5px;
   `}
@@ -63,17 +61,17 @@ const ConfigDiv = styled.div<{ isSideBarExtended: boolean }>`
   cursor: pointer;
 `;
 
-const AccountDiv = styled.div<{ isSideBarExtended: boolean }>`
+const AccountDiv = styled.div<{ $isSideBarExtended: boolean }>`
   display: flex;
   max-width: 100%;
   padding: 6px 8px 5px 8px;
   border-radius: 4px;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   margin-top: 2.5px;
   `}
-  transition: margin-top .5s;
+  transition: margin-top 0.5s;
   &:hover {
     background: ${({ theme: { hvBgLinkColor } }) => hvBgLinkColor};
   }
@@ -89,7 +87,7 @@ const ConfigLogoSpan = styled.span`
   height: 20px;
 `;
 
-const ConfigTextSpan = styled.span<{ isSideBarExtended: boolean }>`
+const ConfigTextSpan = styled.span<{ $isSideBarExtended: boolean }>`
   display: flex;
   flex-shrink: 1;
   margin: auto 8px;
@@ -97,19 +95,19 @@ const ConfigTextSpan = styled.span<{ isSideBarExtended: boolean }>`
   font-size: 15px;
   line-height: 18px;
   color: ${({ theme: { hlColor } }) => hlColor};
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   opacity: 0;
   `}
   transition: opacity 0.5s;
 `;
 
-const AccountAndConfigIconSpan = styled.span<{ isSideBarExtended: boolean }>`
+const AccountAndConfigIconSpan = styled.span<{ $isSideBarExtended: boolean }>`
   display: flex;
   flex-shrink: 1;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   opacity: 0;
   `}
@@ -130,19 +128,19 @@ const AccountAvatarSpan = styled.span`
   overflow: hidden;
 `;
 
-const LinksUl = styled.ul<{ isSideBarExtended: boolean }>`
+const LinksUl = styled.ul<{ $isSideBarExtended: boolean }>`
   list-style: none;
   padding: 17px 16px;
   margin: 0;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   padding: 8px 16px 4px;
   `}
   transition: opacity 0.5s;
 `;
 
-const LinksLiIconSpan = styled.span<{ isSideBarExtended: boolean }>`
+const LinksLiIconSpan = styled.span<{ $isSideBarExtended: boolean }>`
   flex: none;
   flex-grow: 0;
   margin-right: 9px;
@@ -153,8 +151,8 @@ const LinksLiIconSpan = styled.span<{ isSideBarExtended: boolean }>`
       width 0.5s,
       height 0.5s;
   }
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   svg {
     width: 12px;
@@ -194,11 +192,11 @@ const LinksLi = styled.li`
   }
 `;
 
-const LinksLiTextSpan = styled.span<{ isSideBarExtended: boolean }>`
+const LinksLiTextSpan = styled.span<{ $isSideBarExtended: boolean }>`
   flex: none;
   flex-grow: 1;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   opacity: 0;
   `}
@@ -214,8 +212,8 @@ const BoardsUl = styled.ul`
 const BoardsLi = styled.li``;
 
 const BoardsLiTitleDiv = styled.div<{
-  isSideBarExtended: boolean;
-  isMenuOpen: boolean;
+  $isSideBarExtended: boolean;
+  $isMenuOpen: boolean;
 }>`
   margin: 4px 0 4px 16px;
   height: 24px;
@@ -226,15 +224,15 @@ const BoardsLiTitleDiv = styled.div<{
   align-items: center;
   color: ${({ theme: { color } }) => color};
   cursor: pointer;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   opacity: 0;
   height: 0;
   margin: 0;
   `}
-  ${({ isMenuOpen, theme: { hlColor } }) =>
-    isMenuOpen &&
+  ${({ $isMenuOpen, theme: { hlColor } }) =>
+    $isMenuOpen &&
     `
   color: ${hlColor};
   `}
@@ -249,7 +247,7 @@ const BoardsLiTitleDiv = styled.div<{
 `;
 
 const BoardsLiTitleIconSpan = styled.span<{
-  isMenuOpen: boolean;
+  $isMenuOpen: boolean;
 }>`
   margin: 0 12px;
   width: 8px;
@@ -265,8 +263,8 @@ const BoardsLiTitleIconSpan = styled.span<{
       transition: fill 0.5s;
     }
   }
-  ${({ isMenuOpen, theme: { color } }) =>
-    !isMenuOpen &&
+  ${({ $isMenuOpen, theme: { color } }) =>
+    !$isMenuOpen &&
     `
   transform: rotate(0deg);
   svg path {
@@ -276,19 +274,19 @@ const BoardsLiTitleIconSpan = styled.span<{
   transition: transform 0.5s;
 `;
 
-const BoardsLinksUl = styled.ul<{ isOpen: boolean }>`
+const BoardsLinksUl = styled.ul<{ $isOpen: boolean }>`
   list-style: none;
   padding: 0;
   margin: 0 16px;
   max-height: 300px;
   overflow: hidden;
-  ${({ isOpen }) => !isOpen && "max-height: 0;"}
+  ${({ $isOpen }) => !$isOpen && "max-height: 0;"}
   transition: max-height 0.5s;
 `;
 
 const BoardsLinksLi = styled.li<{
-  active: boolean;
-  isSideBarExtended: boolean;
+  $active: boolean;
+  $isSideBarExtended: boolean;
 }>`
   padding: 4px 0;
   width: inherit;
@@ -300,23 +298,24 @@ const BoardsLinksLi = styled.li<{
     color: ${({ theme: { hvColor } }) => hvColor};
     background-color: ${({ theme: { hvBgColor } }) => hvBgColor};
   }
-  transition: background-color 0.5s;
-  ${({ active, theme: { hlColor, hlBgColor } }) =>
-    active &&
+  ${({ $active, theme: { hlColor, hlBgColor } }) =>
+    $active &&
     `
   font-weight: 600;
   color: ${hlColor};
   background-color: ${hlBgColor};
   `}
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   margin-top: 8px;
   `}
-  transition: margin 0.5s;
+  transition:
+    margin 0.5s,
+    background-color 0.5s;
 `;
 
-const BoardsLinksIconSpan = styled.span<{ isSideBarExtended: boolean }>`
+const BoardsLinksIconSpan = styled.span<{ $isSideBarExtended: boolean }>`
   width: 16px;
   height: 20px;
   margin: 0 12px 0 28px;
@@ -325,8 +324,8 @@ const BoardsLinksIconSpan = styled.span<{ isSideBarExtended: boolean }>`
   flex-grow: 0;
   line-height: 18px;
   text-align: center;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   margin: 0 8px 0 9px;
   line-height: 24px;
@@ -335,13 +334,13 @@ const BoardsLinksIconSpan = styled.span<{ isSideBarExtended: boolean }>`
   transition: all 0.5s;
 `;
 
-const BoardsLinksTextSpan = styled.span<{ isSideBarExtended: boolean }>`
+const BoardsLinksTextSpan = styled.span<{ $isSideBarExtended: boolean }>`
   flex: none;
   flex-grow: 1;
   font-size: 14px;
   line-height: 24px;
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   opacity: 0;
   `}
@@ -377,13 +376,13 @@ const NewSectionIconSpan = styled.span`
     width: 10.5px;
     height: 10.5px;
     path {
-      fill: #707070;
+      fill: ${({ theme: { color } }) => color};
       transition: fill 0.5s;
     }
   }
 `;
 
-const NewSectionDiv = styled.div<{ isSideBarExtended: boolean }>`
+const NewSectionDiv = styled.div<{ $isSideBarExtended: boolean }>`
   display: flex;
   align-items: center;
   flex: none;
@@ -392,21 +391,25 @@ const NewSectionDiv = styled.div<{ isSideBarExtended: boolean }>`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #707070;
+  color: ${({ theme: { color } }) => color};
   &:hover {
     color: ${({ theme: { hvColor } }) => hvColor};
     path {
       fill: ${({ theme: { hvColor } }) => hvColor};
     }
   }
-  ${({ isSideBarExtended }) =>
-    !isSideBarExtended &&
+  ${({ $isSideBarExtended }) =>
+    !$isSideBarExtended &&
     `
   opacity: 0;
   height: 0;
   margin: 0;
   `}
-  transition: margin 0.5s, opacity 0.5s, height 0.5s, color 0.5s;
+  transition:
+    margin 0.5s,
+    opacity 0.5s,
+    height 0.5s,
+    color 0.5s;
   cursor: pointer;
 `;
 
@@ -430,7 +433,7 @@ const TogglerDiv = styled.div`
   cursor: pointer;
 `;
 
-const TogglerIconDiv = styled.div<{ isSideBarExtended: boolean }>`
+const TogglerIconDiv = styled.div<{ $isSideBarExtended: boolean }>`
   position: absolute;
   top: 16px;
   left: 0;
@@ -442,9 +445,9 @@ const TogglerIconDiv = styled.div<{ isSideBarExtended: boolean }>`
   background: linear-gradient(180deg, #2e48ed 0%, #2740e1 100%);
   border-radius: 50%;
   transform: translateX(-50%) rotate(-180deg);
-  ${({ isSideBarExtended }) =>
-    isSideBarExtended && "transform: translateX(-50%) rotate(0deg);"}
-  transition: transform .8s;
+  ${({ $isSideBarExtended }) =>
+    $isSideBarExtended && "transform: translateX(-50%) rotate(0deg);"}
+  transition: transform 0.8s;
 `;
 
 export {
@@ -458,21 +461,21 @@ export {
   AccountAndConfigIconSpan,
   AccountAvatarSpan,
   LinksUl,
-  LinksLi,
   LinksLiIconSpan,
-  LinksLiTextSpan,
   LinksLiLetterSpan,
+  LinksLi,
+  LinksLiTextSpan,
   BoardsUl,
   BoardsLi,
-  BoardsLinksUl,
-  BoardsLinksLi,
   BoardsLiTitleDiv,
   BoardsLiTitleIconSpan,
+  BoardsLinksUl,
+  BoardsLinksLi,
   BoardsLinksIconSpan,
   BoardsLinksTextSpan,
   BoardsLinksMoreSpan,
-  NewSectionDiv,
   NewSectionIconSpan,
+  NewSectionDiv,
   TogglerDiv,
   TogglerIconDiv,
 };

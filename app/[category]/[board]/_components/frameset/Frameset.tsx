@@ -9,7 +9,7 @@ const FrameSet: FC<FramesetProps> = ({ children }) => {
   const { isSideBarExtended } = useFrameset();
 
   return (
-    <FrameSetMain isSideBarExtended={isSideBarExtended}>
+    <FrameSetMain $isSideBarExtended={isSideBarExtended}>
       {children}
     </FrameSetMain>
   );

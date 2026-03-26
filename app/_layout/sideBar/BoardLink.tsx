@@ -28,13 +28,13 @@ const BoardLink: FC<BoardLinkProps> = ({
 }) => (
   <Link href={`/${categorySlug}/${slug}`}>
     <BoardsLinksLi
-      active={currentCategory === categorySlug && currentPage === slug}
-      isSideBarExtended={isSideBarExtended}
+      $active={currentCategory === categorySlug && currentPage === slug}
+      $isSideBarExtended={isSideBarExtended}
     >
-      <BoardsLinksIconSpan isSideBarExtended={isSideBarExtended}>
+      <BoardsLinksIconSpan $isSideBarExtended={isSideBarExtended}>
         {icon}
       </BoardsLinksIconSpan>
-      <BoardsLinksTextSpan isSideBarExtended={isSideBarExtended}>
+      <BoardsLinksTextSpan $isSideBarExtended={isSideBarExtended}>
         {text}
       </BoardsLinksTextSpan>
       <BoardsLinksMoreSpan>

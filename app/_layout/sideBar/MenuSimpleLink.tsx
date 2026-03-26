@@ -26,10 +26,10 @@ const MenuSimpleLink: FC<MenuSimpleLinkProps> = ({
   <Link href={slug} passHref>
     <a>
       <LinksLi>
-        <LinksLiIconSpan isSideBarExtended={isSideBarExtended}>
+        <LinksLiIconSpan $isSideBarExtended={isSideBarExtended}>
           {Icons[icon]}
         </LinksLiIconSpan>
-        <LinksLiTextSpan isSideBarExtended={isSideBarExtended}>
+        <LinksLiTextSpan $isSideBarExtended={isSideBarExtended}>
           {text}
         </LinksLiTextSpan>
         {letters?.map(

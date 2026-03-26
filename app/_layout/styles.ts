@@ -3,7 +3,6 @@ import styled from "styled-components";
 const ContainerDiv = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: green;
   display: flex;
   flex-direction: row;
 `;

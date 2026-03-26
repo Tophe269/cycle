@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-const FrameSetMain = styled.main<{ isSideBarExtended: boolean }>`
+const FrameSetMain = styled.main<{ $isSideBarExtended: boolean }>`
   width: calc(
-    100vw - ${({ isSideBarExtended }) => (isSideBarExtended ? "240px" : "64px")}
+    100vw -
+      ${({ $isSideBarExtended }) => ($isSideBarExtended ? "240px" : "64px")}
   );
   padding: 0 26px 10px;
   flex: 1;
@@ -55,7 +56,7 @@ const NewDocSpan = styled.span`
   margin-left: 4.5px;
 `;
 
-const FrameDiv = styled.div<{ collapsed: boolean }>`
+const FrameDiv = styled.div<{ $collapsed: boolean }>`
   position: relative;
   display: flex;
   flex-shrink: 0;
@@ -65,12 +66,12 @@ const FrameDiv = styled.div<{ collapsed: boolean }>`
   padding: 0px 0px 12px 0px;
   background-color: ${({ theme: { frameBgColor } }) => frameBgColor};
   border-radius: 8px;
-  ${({ collapsed }) => collapsed && "width: 33px;"}
+  ${({ $collapsed }) => $collapsed && "width: 33px;"}
   transition: width 0.5s, background-color .5s;
   overflow: hidden;
 `;
 
-const DownSpan = styled.span<{ collapsed: boolean }>`
+const DownSpan = styled.span<{ $collapsed: boolean }>`
   position: absolute;
   display: flex;
   align-items: center;
@@ -82,7 +83,7 @@ const DownSpan = styled.span<{ collapsed: boolean }>`
   z-index: 2;
   border-radius: 4px;
   transform: rotate(0deg);
-  ${({ collapsed }) => collapsed && "transform: rotate(180deg);"}
+  ${({ $collapsed }) => $collapsed && "transform: rotate(180deg);"}
   transition: transform 0.5s, background-color .5s;
   cursor: pointer;
   &:hover {
@@ -96,7 +97,7 @@ const DownSpan = styled.span<{ collapsed: boolean }>`
   }
 `;
 
-const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
+const FrameTitleDiv = styled.div<{ $collapsed: boolean }>`
   width: 270px;
   margin: 8px 0;
   display: flex;
@@ -104,16 +105,16 @@ const FrameTitleDiv = styled.div<{ collapsed: boolean }>`
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
-  ${({ collapsed }) => collapsed && "transform: translate(-267px, 0px);"}
+  ${({ $collapsed }) => $collapsed && "transform: translate(-267px, 0px);"}
   transition: all 0.5s;
 `;
 
-const FrameTitleSpan = styled.span<{ collapsed: boolean }>`
+const FrameTitleSpan = styled.span<{ $collapsed: boolean }>`
   display: block;
   padding: 0 24px 0 32px;
   flex-grow: 1;
-  ${({ collapsed }) =>
-    collapsed &&
+  ${({ $collapsed }) =>
+    $collapsed &&
     `
   transform: rotate(-90deg);
   flex-grow: 0;`}
@@ -130,13 +131,13 @@ const FrameTitleTextSpan = styled.span`
   margin-left: 8px;
 `;
 
-const ScrollWrapperDiv = styled.div<{ collapsed: boolean }>`
+const ScrollWrapperDiv = styled.div<{ $collapsed: boolean }>`
   max-height: calc(100vh - 129px);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0px 8px;
-  ${({ collapsed }) =>
-    collapsed &&
+  ${({ $collapsed }) =>
+    $collapsed &&
     `
   padding-top: 300px;
   opacity: 0;

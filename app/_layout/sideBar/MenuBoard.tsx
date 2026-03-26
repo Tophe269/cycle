@@ -27,16 +27,16 @@ const MenuBoard: FC<MenuBoardProps> = ({
 }) => (
   <BoardsLi key={boardSlug}>
     <BoardsLiTitleDiv
-      isSideBarExtended={isSideBarExtended}
+      $isSideBarExtended={isSideBarExtended}
       onClick={openThisMenu}
-      isMenuOpen={boardSlug === openMenuSlug}
+      $isMenuOpen={boardSlug === openMenuSlug}
     >
-      <BoardsLiTitleIconSpan isMenuOpen={boardSlug === openMenuSlug}>
+      <BoardsLiTitleIconSpan $isMenuOpen={boardSlug === openMenuSlug}>
         <Down />
       </BoardsLiTitleIconSpan>
       {title}
     </BoardsLiTitleDiv>
-    <BoardsLinksUl isOpen={boardSlug === openMenuSlug}>
+    <BoardsLinksUl $isOpen={boardSlug === openMenuSlug}>
       {children}
     </BoardsLinksUl>
   </BoardsLi>

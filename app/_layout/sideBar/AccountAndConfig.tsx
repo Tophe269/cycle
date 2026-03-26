@@ -17,23 +17,23 @@ type AccountAndConfigProps = {
 };
 
 const AccountAndConfig: FC<AccountAndConfigProps> = ({ isSideBarExtended }) => (
-  <AccountAndConfigDiv isSideBarExtended={isSideBarExtended}>
-    <ConfigDiv isSideBarExtended={isSideBarExtended}>
+  <AccountAndConfigDiv $isSideBarExtended={isSideBarExtended}>
+    <ConfigDiv $isSideBarExtended={isSideBarExtended}>
       <ConfigLogoSpan>
         <Logo width="20" height="20" />
       </ConfigLogoSpan>
-      <ConfigTextSpan isSideBarExtended={isSideBarExtended}>
+      <ConfigTextSpan $isSideBarExtended={isSideBarExtended}>
         Cycle
       </ConfigTextSpan>
-      <AccountAndConfigIconSpan isSideBarExtended={isSideBarExtended}>
+      <AccountAndConfigIconSpan $isSideBarExtended={isSideBarExtended}>
         <SelectG />
       </AccountAndConfigIconSpan>
     </ConfigDiv>
-    <AccountDiv isSideBarExtended={isSideBarExtended}>
+    <AccountDiv $isSideBarExtended={isSideBarExtended}>
       <AccountAvatarSpan>
         <Image src="/avatar.jpg" alt="open" width={18} height={18.75} />
       </AccountAvatarSpan>
-      <AccountAndConfigIconSpan isSideBarExtended={isSideBarExtended}>
+      <AccountAndConfigIconSpan $isSideBarExtended={isSideBarExtended}>
         <SelectG />
       </AccountAndConfigIconSpan>
     </AccountDiv>

@@ -23,22 +23,22 @@ const Frame: FC<FrameProps> = ({ titleIcon, title, children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <FrameDiv collapsed={collapsed}>
+    <FrameDiv $collapsed={collapsed}>
       <DownSpan
         onClick={() => {
           setCollapsed(!collapsed);
         }}
-        collapsed={collapsed}
+        $collapsed={collapsed}
       >
         <Down width={7} height={6} />
       </DownSpan>
-      <FrameTitleDiv collapsed={collapsed}>
-        <FrameTitleSpan collapsed={collapsed}>
+      <FrameTitleDiv $collapsed={collapsed}>
+        <FrameTitleSpan $collapsed={collapsed}>
           <FrameTitleIconSpan>{titleIcon}</FrameTitleIconSpan>
           <FrameTitleTextSpan>{title}</FrameTitleTextSpan>
         </FrameTitleSpan>
       </FrameTitleDiv>
-      <ScrollWrapperDiv collapsed={collapsed}>
+      <ScrollWrapperDiv $collapsed={collapsed}>
         {children}
         <NewDocDiv>
           <New width={7} height={7} />

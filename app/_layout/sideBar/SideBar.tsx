@@ -34,10 +34,10 @@ const SideBar: FC<SideBarContainerProps> = ({
     useSideBar({ currentCategory, currentPage });
 
   return (
-    <Nav isSideBarExtended={isSideBarExtended}>
+    <Nav $isSideBarExtended={isSideBarExtended}>
       <AccountAndConfig isSideBarExtended={isSideBarExtended} />
       <SeparatorHr />
-      <LinksUl isSideBarExtended={isSideBarExtended}>
+      <LinksUl $isSideBarExtended={isSideBarExtended}>
         {menuLinks.map(
           (menuLink: MenuLink): ReactElement => (
             <MenuSimpleLink
@@ -76,7 +76,7 @@ const SideBar: FC<SideBarContainerProps> = ({
             </MenuBoard>
           ),
         )}
-        <NewSectionDiv isSideBarExtended={isSideBarExtended}>
+        <NewSectionDiv $isSideBarExtended={isSideBarExtended}>
           <NewSectionIconSpan>
             <Create />
           </NewSectionIconSpan>
@@ -85,7 +85,7 @@ const SideBar: FC<SideBarContainerProps> = ({
       </BoardsUl>
 
       <TogglerDiv onClick={toggleSideBar}>
-        <TogglerIconDiv isSideBarExtended={isSideBarExtended}>
+        <TogglerIconDiv $isSideBarExtended={isSideBarExtended}>
           <Select />
         </TogglerIconDiv>
       </TogglerDiv>
