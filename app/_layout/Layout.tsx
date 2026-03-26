@@ -9,13 +9,7 @@ import { boards } from "app/_constants/menu";
 import SideBar from "./sideBar/SideBar";
 import { findTitleAndIcon } from "./helpers";
 
-import {
-  ContainerDiv,
-  Header,
-  HeaderTitleSpan,
-  HeaderTitleIconSpan,
-  ContentDiv,
-} from "./styles";
+import { ContainerDiv } from "./styles";
 
 type LayoutProps = PropsWithChildren;
 
@@ -26,26 +20,13 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     .split("/");
   const currentCategory = secondSegment ? firstSegment : "starred";
   const currentPage = secondSegment || firstSegment;
-  const { icon, text: title } = findTitleAndIcon({
-    boards,
-    category: currentCategory,
-    board: currentPage,
-  });
 
   return (
     <ContainerDiv>
       <ThemeProvider theme={theme.nav}>
         <SideBar currentCategory={currentCategory} currentPage={currentPage} />
       </ThemeProvider>
-      <ThemeProvider theme={theme.content}>
-        <ContentDiv>
-          <Header>
-            <HeaderTitleIconSpan>{icon}</HeaderTitleIconSpan>{" "}
-            <HeaderTitleSpan>{title}</HeaderTitleSpan>
-          </Header>
-          {children}
-        </ContentDiv>
-      </ThemeProvider>
+      {children}
     </ContainerDiv>
   );
 };
