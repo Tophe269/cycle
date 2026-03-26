@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components";
 
 import { ToggleSideBarProvider } from "app/_contexts/ToggleSideBarContext";
 
-import StyledComponentsRegistry from "../styled-components-registry";
+import StyledComponentsRegistry from "app/styled-components-registry";
 
 type ProvidersProps = {
   children: ReactNode;

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import IconK from "../../../public/letters/k.svg";
-import IconCmd from "../../../public/letters/cmd.svg";
+import IconK from "app/_icons/LetterK";
+import IconCmd from "app/_icons/LetterCmd";
 
 const Icons: { [i: string]: ReactElement } = {
   k: <IconK />,

@@ -9,12 +9,12 @@ import {
   TogglerDiv,
   TogglerIconDiv,
 } from "./styles";
-import Image from "next/image";
 import AccountAndConfig from "./AccountAndConfig";
 import MenuBoard from "./MenuBoard";
 import BoardLink from "./BoardLink";
 import MenuSimpleLink from "./MenuSimpleLink";
-import Create from "../../../public/icons/create.svg";
+import Create from "app/_icons/Create";
+import Select from "app/_icons/Select";
 
 import { menuLinks, boards } from "app/_constants/menu";
 
@@ -86,12 +86,7 @@ const SideBar: FC<SideBarContainerProps> = ({
 
       <TogglerDiv onClick={toggleSideBar}>
         <TogglerIconDiv isSideBarExtended={isSideBarExtended}>
-          <Image
-            src={`/icons/select.svg`}
-            alt="Toggle menu"
-            width={6}
-            height={10}
-          />
+          <Select />
         </TogglerIconDiv>
       </TogglerDiv>
     </Nav>

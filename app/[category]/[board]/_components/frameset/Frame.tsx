@@ -11,8 +11,8 @@ import {
   NewDocDiv,
   NewDocSpan,
 } from "./styles";
-import Down from "../../../../../public/icons/down.svg";
-import New from "../../../../../public/icons/new.svg";
+import Down from "app/_icons/Down";
+import New from "app/_icons/New";
 
 type FrameProps = PropsWithChildren<{
   titleIcon: string;

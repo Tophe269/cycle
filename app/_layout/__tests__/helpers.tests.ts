@@ -1,4 +1,4 @@
-import { findTitleAndIcon } from "../helpers";
+import { findTitleAndIcon } from "app/_layout/helpers";
 import { boards } from "app/_constants/menu";
 
 describe("layout helpers", () => {

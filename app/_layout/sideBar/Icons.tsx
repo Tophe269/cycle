@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
-import IconSearch from "../../../public/icons/search.svg";
-import IconNotifications from "../../../public/icons/notifications.svg";
-import IconCommands from "../../../public/icons/commands.svg";
-import IconCreate from "../../../public/icons/create.svg";
-import IconAllDocs from "../../../public/icons/alldocs.svg";
+import IconSearch from "app/_icons/Search";
+import IconNotifications from "app/_icons/Notifications";
+import IconCommands from "app/_icons/Commands";
+import IconCreate from "app/_icons/Create";
+import IconAllDocs from "app/_icons/AllDocs";
 
 const Icons: { [i: string]: ReactElement } = {
   search: <IconSearch />,

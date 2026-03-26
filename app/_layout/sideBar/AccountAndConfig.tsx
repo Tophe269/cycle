@@ -9,8 +9,8 @@ import {
   AccountAvatarSpan,
 } from "./styles";
 import Image from "next/image";
-
-import Logo from "../../../public/logo.svg";
+import SelectG from "app/_icons/SelectG";
+import Logo from "app/_icons/Logo";
 
 type AccountAndConfigProps = {
   isSideBarExtended: boolean;
@@ -26,7 +26,7 @@ const AccountAndConfig: FC<AccountAndConfigProps> = ({ isSideBarExtended }) => (
         Cycle
       </ConfigTextSpan>
       <AccountAndConfigIconSpan isSideBarExtended={isSideBarExtended}>
-        <Image src="/icons/selectG.svg" alt="open" width={8} height={5} />
+        <SelectG />
       </AccountAndConfigIconSpan>
     </ConfigDiv>
     <AccountDiv isSideBarExtended={isSideBarExtended}>
@@ -34,7 +34,7 @@ const AccountAndConfig: FC<AccountAndConfigProps> = ({ isSideBarExtended }) => (
         <Image src="/avatar.jpg" alt="open" width={18} height={18.75} />
       </AccountAvatarSpan>
       <AccountAndConfigIconSpan isSideBarExtended={isSideBarExtended}>
-        <Image src="/icons/selectG.svg" alt="open" width={8} height={5} />
+        <SelectG />
       </AccountAndConfigIconSpan>
     </AccountDiv>
   </AccountAndConfigDiv>
